@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Michelle Zuo</title>
+  <meta name="description" content="Michelle Zuo — math + cs at Duke, aspiring software engineer, always baking something.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍪</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dongle:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="kitchen-page">
+
+  <header class="hello">
+    <h1>Michelle Zuo</h1>
+    <p>math + cs @ duke &nbsp;·&nbsp; aspiring swe &nbsp;·&nbsp; always baking something</p>
+  </header>
+
+  <main class="kitchen-wrap">
+    <svg class="kitchen" viewBox="0 0 1200 780" role="img" aria-labelledby="kt">
+      <title id="kt">A cozy kitchen. Click the oven for projects, the recipe book for about me, and the cookie jar for fun stuff.</title>
+      <defs>
+        <linearGradient id="night" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#1f2944"/>
+          <stop offset="1" stop-color="#43537a"/>
+        </linearGradient>
+        <radialGradient id="ovenHeat" cx=".5" cy=".6" r=".7">
+          <stop offset="0" stop-color="#ffd98a"/>
+          <stop offset=".55" stop-color="#e9772f"/>
+          <stop offset="1" stop-color="#7a2a12"/>
+        </radialGradient>
+        <clipPath id="glass"><rect x="462" y="177" width="276" height="256"/></clipPath>
+        <clipPath id="ovenWin"><rect x="112" y="556" width="176" height="132" rx="12"/></clipPath>
+      </defs>
+
+      <!-- ceiling planks -->
+      <rect x="0" y="0" width="1200" height="92" fill="var(--plank)"/>
+      <g stroke="var(--line)" stroke-width="2.5" stroke-linecap="round" opacity=".75">
+        <path d="M80 0 L60 90"/><path d="M200 0 L186 90"/><path d="M320 0 L312 90"/>
+        <path d="M440 0 L437 90"/><path d="M560 0 L561 90"/><path d="M680 0 L686 90"/>
+        <path d="M800 0 L812 90"/><path d="M920 0 L937 90"/><path d="M1040 0 L1062 90"/>
+        <path d="M1160 0 L1187 90"/>
+      </g>
+      <rect x="0" y="90" width="1200" height="8" fill="var(--wood)" class="ol"/>
+
+      <!-- wall -->
+      <rect x="0" y="98" width="1200" height="642" fill="var(--wall)"/>
+
+      <!-- floor -->
+      <g>
+        <rect x="0" y="740" width="1200" height="40" fill="var(--cream)" class="ol"/>
+        <g fill="#d9b58e" opacity=".8">
+          <rect x="0" y="740" width="40" height="20"/><rect x="80" y="740" width="40" height="20"/><rect x="160" y="740" width="40" height="20"/><rect x="240" y="740" width="40" height="20"/><rect x="320" y="740" width="40" height="20"/><rect x="400" y="740" width="40" height="20"/><rect x="480" y="740" width="40" height="20"/><rect x="560" y="740" width="40" height="20"/><rect x="640" y="740" width="40" height="20"/><rect x="720" y="740" width="40" height="20"/><rect x="800" y="740" width="40" height="20"/><rect x="880" y="740" width="40" height="20"/><rect x="960" y="740" width="40" height="20"/><rect x="1040" y="740" width="40" height="20"/><rect x="1120" y="740" width="40" height="20"/>
+          <rect x="40" y="760" width="40" height="20"/><rect x="120" y="760" width="40" height="20"/><rect x="200" y="760" width="40" height="20"/><rect x="280" y="760" width="40" height="20"/><rect x="360" y="760" width="40" height="20"/><rect x="440" y="760" width="40" height="20"/><rect x="520" y="760" width="40" height="20"/><rect x="600" y="760" width="40" height="20"/><rect x="680" y="760" width="40" height="20"/><rect x="760" y="760" width="40" height="20"/><rect x="840" y="760" width="40" height="20"/><rect x="920" y="760" width="40" height="20"/><rect x="1000" y="760" width="40" height="20"/><rect x="1080" y="760" width="40" height="20"/><rect x="1160" y="760" width="40" height="20"/>
+        </g>
+      </g>
+
+      <!-- utensil rail -->
+      <g class="ol" fill="none">
+        <line x1="90" y1="250" x2="310" y2="250" stroke-width="6" stroke="var(--mustard)"/>
+        <line x1="90" y1="250" x2="310" y2="250"/>
+        <!-- spoon -->
+        <path d="M115 250 V325"/><ellipse cx="115" cy="336" rx="9" ry="13" fill="var(--wood)"/>
+        <!-- ladle -->
+        <path d="M150 250 V320"/><path d="M136 320 a14 14 0 0 0 28 0 Z" fill="#b9c2c2"/>
+        <!-- whisk -->
+        <path d="M190 250 V282"/>
+        <path d="M190 282 C176 300 178 336 190 342 C202 336 204 300 190 282 Z" fill="none"/>
+        <path d="M190 282 V342"/>
+        <!-- spatula -->
+        <path d="M228 250 V304"/><rect x="216" y="304" width="24" height="36" rx="4" fill="var(--terracotta)"/>
+        <!-- potholder -->
+        <path d="M268 250 V266"/>
+        <rect x="248" y="276" width="40" height="40" transform="rotate(45 268 296)" fill="var(--terracotta)"/>
+        <rect x="258" y="286" width="20" height="20" transform="rotate(45 268 296)" fill="var(--cream)"/>
+      </g>
+
+      <!-- ============ OVEN → projects ============ -->
+      <a id="oven" class="hotspot" href="projects.html" aria-label="Open the oven: projects">
+        <g class="lift">
+          <!-- back guard + clock -->
+          <rect x="70" y="456" width="260" height="32" rx="4" fill="#efe4cf" class="ol"/>
+          <g fill="var(--cream)" class="ol" stroke-width="2.5">
+            <circle cx="104" cy="472" r="8"/><circle cx="138" cy="472" r="8"/>
+            <circle cx="262" cy="472" r="8"/><circle cx="296" cy="472" r="8"/>
+          </g>
+          <rect x="176" y="463" width="48" height="18" rx="3" fill="var(--ink)"/>
+          <text x="200" y="477" text-anchor="middle" font-family="Dongle" font-size="22" fill="var(--mustard)">3:50</text>
+
+          <!-- cooktop -->
+          <rect x="66" y="488" width="268" height="12" rx="3" fill="#e2d5ba" class="ol"/>
+          <ellipse cx="135" cy="488" rx="36" ry="5" fill="#3a2a22"/>
+          <ellipse cx="265" cy="488" rx="36" ry="5" fill="#3a2a22"/>
+
+          <!-- kettle -->
+          <g class="ol">
+            <path d="M100 486 Q98 448 135 443 Q172 448 170 486 Z" fill="#8fa39a"/>
+            <path d="M103 468 Q86 464 82 450" fill="none" stroke-width="6" stroke="var(--line)"/>
+            <path d="M112 452 Q135 412 158 452" fill="none"/>
+            <ellipse cx="135" cy="445" rx="17" ry="5" fill="#7a8f86"/>
+            <circle cx="135" cy="438" r="5" fill="var(--mustard)"/>
+          </g>
+
+          <!-- body -->
+          <rect x="70" y="500" width="260" height="240" rx="4" fill="#efe4cf" class="ol"/>
+          <rect x="88" y="518" width="224" height="204" rx="10" fill="#e6d8bd" class="ol"/>
+          <rect x="108" y="530" width="184" height="10" rx="5" fill="var(--mustard)" class="ol" stroke-width="2.5"/>
+
+          <!-- window -->
+          <rect x="112" y="556" width="176" height="132" rx="12" fill="#2a1a12"/>
+          <g clip-path="url(#ovenWin)">
+            <g class="oven-glow">
+              <rect x="112" y="556" width="176" height="132" fill="url(#ovenHeat)"/>
+              <line x1="112" y1="650" x2="288" y2="650" stroke="#6b3a1f" stroke-width="3"/>
+              <rect x="128" y="640" width="144" height="8" rx="2" fill="#9d978d" stroke="var(--line)" stroke-width="2"/>
+              <g fill="#d9a05c" stroke="var(--line)" stroke-width="2">
+                <circle cx="148" cy="630" r="12"/><circle cx="182" cy="630" r="12"/>
+                <circle cx="216" cy="630" r="12"/><circle cx="250" cy="630" r="12"/>
+              </g>
+              <g fill="#3e2114">
+                <circle cx="145" cy="627" r="2.5"/><circle cx="152" cy="633" r="2"/>
+                <circle cx="180" cy="626" r="2.5"/><circle cx="186" cy="634" r="2"/>
+                <circle cx="213" cy="632" r="2.5"/><circle cx="220" cy="626" r="2"/>
+                <circle cx="247" cy="628" r="2.5"/><circle cx="254" cy="634" r="2"/>
+              </g>
+            </g>
+            <path class="oven-hot" d="M120 676 l12 -6 l12 6 l12 -6 l12 6 l12 -6 l12 6 l12 -6 l12 6 l12 -6 l12 6 l12 -6 l12 6 l12 -6" fill="none" stroke="#ff6a2a" stroke-width="3"/>
+          </g>
+          <rect x="112" y="556" width="176" height="132" rx="12" fill="none" class="ol"/>
+          <path d="M126 566 L150 566" stroke="#fff" stroke-width="3" opacity=".35" stroke-linecap="round"/>
+
+          <!-- feet -->
+          <rect x="84" y="740" width="22" height="6" fill="var(--line)"/>
+          <rect x="294" y="740" width="22" height="6" fill="var(--line)"/>
+        </g>
+
+        <g class="steam" transform="translate(0,0)">
+          <path d="M180 440 q-10 -14 0 -28 q10 -14 0 -28"/>
+          <path d="M200 440 q-10 -14 0 -28 q10 -14 0 -28"/>
+          <path d="M220 440 q-10 -14 0 -28 q10 -14 0 -28"/>
+        </g>
+
+        <g class="tag">
+          <rect x="226" y="384" width="112" height="42" rx="12"/>
+          <text x="282" y="416" text-anchor="middle">projects</text>
+        </g>
+      </a>
+
+      <!-- little framed picture -->
+      <g class="ol">
+        <rect x="352" y="196" width="56" height="70" fill="var(--paper)"/>
+        <rect x="360" y="204" width="40" height="54" fill="#cfd8d3"/>
+        <path d="M360 250 L374 232 L384 244 L392 236 L400 248 V258 H360 Z" fill="var(--olive)" stroke-width="2"/>
+        <circle cx="391" cy="215" r="5" fill="var(--mustard)" stroke-width="2"/>
+      </g>
+
+      <!-- ============ WINDOW ============ -->
+      <rect x="445" y="160" width="310" height="290" fill="var(--paper)" class="ol"/>
+      <rect x="462" y="177" width="276" height="256" fill="url(#night)"/>
+      <g clip-path="url(#glass)">
+        <circle cx="690" cy="215" r="16" fill="#f7eed8"/>
+        <path d="M462 433 V386 Q520 350 580 380 Q640 346 700 372 Q724 380 738 372 V433 Z" fill="#f4f1ea"/>
+        <path d="M462 433 V408 Q540 388 610 410 Q680 392 738 404 V433 Z" fill="#e3e3e8"/>
+        <g class="snow" id="snow"></g>
+      </g>
+      <g class="ol" fill="none">
+        <rect x="462" y="177" width="276" height="256"/>
+        <line x1="600" y1="177" x2="600" y2="433" stroke-width="7" stroke="var(--paper)"/>
+        <line x1="462" y1="305" x2="738" y2="305" stroke-width="7" stroke="var(--paper)"/>
+        <line x1="531" y1="177" x2="531" y2="433" stroke-width="3"/>
+        <line x1="669" y1="177" x2="669" y2="433" stroke-width="3"/>
+      </g>
+      <!-- sill -->
+      <rect x="428" y="448" width="344" height="14" fill="var(--paper)" class="ol"/>
+
+      <!-- curtains + rod -->
+      <g class="ol">
+        <path d="M418 152 H480 Q470 240 486 300 Q470 305 462 300 Q440 380 452 452 H420 Q410 300 418 152 Z" fill="var(--olive)"/>
+        <path d="M782 152 H720 Q730 240 714 300 Q730 305 738 300 Q760 380 748 452 H780 Q790 300 782 152 Z" fill="var(--olive)"/>
+        <path d="M430 296 Q456 306 482 296" fill="none" stroke="var(--mustard)" stroke-width="5"/>
+        <path d="M770 296 Q744 306 718 296" fill="none" stroke="var(--mustard)" stroke-width="5"/>
+      </g>
+      <g class="ol">
+        <line x1="404" y1="150" x2="796" y2="150" stroke="var(--mustard)" stroke-width="8"/>
+        <line x1="404" y1="150" x2="796" y2="150" stroke-width="2"/>
+        <circle cx="402" cy="150" r="7" fill="var(--mustard)" stroke-width="2.5"/>
+        <circle cx="798" cy="150" r="7" fill="var(--mustard)" stroke-width="2.5"/>
+      </g>
+
+      <!-- cat on sill -->
+      <g class="ol" stroke-width="2.5">
+        <path class="tail" d="M710 444 Q740 450 748 432" fill="none" stroke="#7a7268" stroke-width="7"/>
+        <ellipse cx="690" cy="423" rx="24" ry="26" fill="#8c8479"/>
+        <path d="M676 382 L678 362 L690 375 Z" fill="#8c8479"/>
+        <path d="M704 382 L702 362 L690 375 Z" fill="#8c8479"/>
+        <circle cx="690" cy="389" r="16" fill="#8c8479"/>
+        <path d="M680 410 q10 4 20 0 M682 422 q8 3 16 0" fill="none" stroke="#6e675e" stroke-width="2"/>
+      </g>
+
+      <!-- ============ COUNTER + CABINETS ============ -->
+      <rect x="342" y="522" width="798" height="218" fill="var(--olive)" class="ol"/>
+      <g class="ol" fill="var(--olive-dark)" stroke-width="2.5">
+        <rect x="354" y="534" width="186" height="40" rx="4"/>
+        <rect x="550" y="534" width="186" height="40" rx="4"/>
+        <rect x="746" y="534" width="186" height="40" rx="4"/>
+        <rect x="942" y="534" width="186" height="40" rx="4"/>
+        <rect x="354" y="584" width="186" height="144" rx="4"/>
+        <rect x="550" y="584" width="186" height="144" rx="4"/>
+        <rect x="746" y="584" width="186" height="144" rx="4"/>
+        <rect x="942" y="584" width="186" height="144" rx="4"/>
+      </g>
+      <g fill="var(--mustard)" class="ol" stroke-width="2">
+        <circle cx="447" cy="554" r="5"/><circle cx="643" cy="554" r="5"/>
+        <circle cx="839" cy="554" r="5"/><circle cx="1035" cy="554" r="5"/>
+        <circle cx="524" cy="656" r="5"/><circle cx="566" cy="656" r="5"/>
+        <circle cx="916" cy="656" r="5"/><circle cx="958" cy="656" r="5"/>
+      </g>
+      <!-- tea towel -->
+      <g class="ol" stroke-width="2.5">
+        <path d="M628 556 H658 V632 H628 Z" fill="var(--paper)"/>
+        <rect x="628" y="606" width="30" height="5" fill="var(--terracotta)" stroke="none"/>
+        <rect x="628" y="615" width="30" height="3" fill="var(--night)" stroke="none"/>
+      </g>
+
+      <!-- countertop -->
+      <rect x="334" y="500" width="816" height="24" rx="3" fill="var(--terracotta)" class="ol"/>
+
+      <!-- ============ SINK (easter egg: tap it) ============ -->
+      <g id="sink" class="hotspot" role="button" tabindex="0" aria-label="Turn the tap on or off" aria-pressed="false">
+        <rect x="500" y="496" width="200" height="8" rx="3" fill="#8e9a9a" class="ol" stroke-width="2.5"/>
+        <path d="M600 498 V452 Q600 436 616 436 H634 Q648 436 648 450 V460" fill="none" stroke="var(--line)" stroke-width="15" stroke-linecap="round"/>
+        <path d="M600 498 V452 Q600 436 616 436 H634 Q648 436 648 450 V460" fill="none" stroke="#c9d1d1" stroke-width="9" stroke-linecap="round"/>
+        <g class="ol" fill="#c9d1d1" stroke-width="2.5">
+          <rect x="570" y="484" width="16" height="12" rx="3"/>
+          <rect x="614" y="484" width="16" height="12" rx="3"/>
+        </g>
+        <g class="water">
+          <line x1="648" y1="466" x2="648" y2="498" stroke="#9fd0e6" stroke-width="5" stroke-dasharray="8 4" stroke-linecap="round"/>
+        </g>
+      </g>
+      <!-- mug + plant on counter -->
+      <g class="ol" stroke-width="2.5">
+        <path d="M530 470 H556 V494 Q556 500 550 500 H536 Q530 500 530 494 Z" fill="var(--paper)"/>
+        <path d="M556 476 q10 0 10 9 q0 9 -10 9" fill="none"/>
+        <path d="M537 480 q6 -6 12 0" fill="none" stroke="var(--terracotta)"/>
+        <path d="M722 476 H760 L754 500 H728 Z" fill="var(--terracotta)"/>
+        <path d="M741 476 q-14 -24 -24 -26 q4 16 24 26 q2 -26 12 -34 q2 20 -12 34 q18 -18 30 -14 q-10 14 -30 14" fill="#86a06a"/>
+      </g>
+
+      <!-- ============ SHELVES ============ -->
+      <g class="ol">
+        <rect x="846" y="230" width="290" height="10" fill="var(--wood)"/>
+        <rect x="846" y="320" width="290" height="10" fill="var(--wood)"/>
+        <path d="M870 240 v16 l12 -16 z M1112 240 v16 l-12 -16 z M870 330 v16 l12 -16 z M1112 330 v16 l-12 -16 z" fill="var(--wood)" stroke-width="2"/>
+      </g>
+      <!-- teapot -->
+      <g class="ol" stroke-width="2.5">
+        <path d="M872 230 Q866 196 902 192 Q938 196 932 230 Z" fill="var(--mustard)"/>
+        <path d="M932 212 Q950 206 952 190" fill="none" stroke-width="5"/>
+        <path d="M872 206 q-16 4 -8 20" fill="none" stroke-width="4"/>
+        <ellipse cx="902" cy="192" rx="12" ry="4" fill="var(--mustard)"/>
+        <circle cx="902" cy="185" r="4" fill="var(--terracotta)"/>
+      </g>
+      <!-- stacked bowls + plates -->
+      <g class="ol" stroke-width="2.5">
+        <path d="M980 230 H1060 Q1056 210 1040 206 H1000 Q984 210 980 230 Z" fill="var(--terracotta)"/>
+        <path d="M988 206 H1052 Q1048 190 1036 188 H1004 Q992 190 988 206 Z" fill="#c9694d"/>
+        <rect x="1072" y="222" width="52" height="8" rx="3" fill="var(--paper)"/>
+        <rect x="1074" y="214" width="48" height="8" rx="3" fill="var(--paper)"/>
+      </g>
+      <!-- flour + sugar jars -->
+      <g class="ol" stroke-width="2.5">
+        <rect x="862" y="272" width="46" height="48" rx="6" fill="#f3ebdc"/>
+        <rect x="860" y="264" width="50" height="10" rx="3" fill="var(--wood)"/>
+        <rect x="862" y="290" width="46" height="30" rx="6" fill="#fffaf1" stroke="none" opacity=".9"/>
+        <rect x="920" y="280" width="42" height="40" rx="6" fill="#f3ebdc"/>
+        <rect x="918" y="272" width="46" height="10" rx="3" fill="var(--wood)"/>
+        <rect x="920" y="300" width="42" height="20" rx="6" fill="#e8d7b8" stroke="none"/>
+      </g>
+      <text x="885" y="300" text-anchor="middle" font-family="Dongle" font-size="20" fill="var(--line)">flour</text>
+      <text x="941" y="302" text-anchor="middle" font-family="Dongle" font-size="20" fill="var(--line)">sugar</text>
+
+      <!-- ============ COOKIE JAR → fun ============ -->
+      <a id="jar" class="hotspot" href="fun.html" aria-label="Open the cookie jar: fun stuff">
+        <g class="lift">
+          <g class="ol" stroke-width="2.5">
+            <path d="M992 262 H1100 V306 Q1100 320 1086 320 H1006 Q992 320 992 306 Z" fill="#f7efe0" fill-opacity=".85"/>
+            <g fill="#d9a05c" stroke-width="2">
+              <circle cx="1014" cy="302" r="13"/><circle cx="1044" cy="306" r="13"/>
+              <circle cx="1076" cy="302" r="13"/><circle cx="1030" cy="282" r="13"/>
+              <circle cx="1062" cy="282" r="13"/>
+            </g>
+            <rect x="986" y="250" width="120" height="14" rx="5" fill="var(--terracotta)"/>
+            <ellipse cx="1046" cy="248" rx="10" ry="6" fill="var(--mustard)"/>
+          </g>
+          <g fill="#3e2114">
+            <circle cx="1011" cy="298" r="2.2"/><circle cx="1018" cy="306" r="2"/>
+            <circle cx="1041" cy="303" r="2.2"/><circle cx="1049" cy="309" r="2"/>
+            <circle cx="1072" cy="298" r="2.2"/><circle cx="1080" cy="306" r="2"/>
+            <circle cx="1027" cy="279" r="2.2"/><circle cx="1059" cy="285" r="2.2"/>
+          </g>
+          <path d="M1000 270 V300" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity=".7"/>
+        </g>
+        <g class="tag">
+          <rect x="984" y="340" width="124" height="42" rx="12"/>
+          <text x="1046" y="372" text-anchor="middle">fun stuff</text>
+        </g>
+      </a>
+
+      <!-- ============ RECIPE BOOK → about ============ -->
+      <a id="book" class="hotspot" href="about.html" aria-label="Read the recipe book: about me">
+        <g class="lift">
+          <g class="ol" stroke-width="2.5">
+            <path d="M880 500 L934 430 L988 500" fill="none" stroke="var(--wood)" stroke-width="6"/>
+            <path d="M862 488 L936 476 L936 414 L868 424 Z" fill="var(--paper)"/>
+            <path d="M1010 488 L936 476 L936 414 L1004 424 Z" fill="var(--paper)"/>
+            <path d="M858 492 L936 480 L1014 492" fill="none" stroke="var(--terracotta)" stroke-width="5"/>
+          </g>
+          <g stroke="#b8a88f" stroke-width="2" stroke-linecap="round">
+            <path d="M878 440 L924 433"/><path d="M878 450 L924 443"/><path d="M878 460 L914 454"/>
+            <path d="M948 433 L992 440"/><path d="M948 443 L992 450"/>
+          </g>
+          <circle cx="970" cy="463" r="9" fill="var(--terracotta)" stroke="var(--line)" stroke-width="2"/>
+          <text x="900" y="474" text-anchor="middle" font-family="Dongle" font-size="18" fill="var(--terracotta)">recipe</text>
+        </g>
+        <g class="tag">
+          <rect x="872" y="360" width="112" height="42" rx="12"/>
+          <text x="928" y="392" text-anchor="middle">about me</text>
+        </g>
+      </a>
+
+      <!-- mixing bowl + whisk -->
+      <g class="ol" stroke-width="2.5">
+        <path d="M1086 444 L1112 404" stroke-width="4"/>
+        <path d="M1112 404 q10 -18 2 -24 q-10 2 -10 20" fill="none"/>
+        <path d="M1034 462 H1136 Q1132 500 1085 500 Q1038 500 1034 462 Z" fill="#8fa39a"/>
+        <path d="M1038 462 H1132" stroke="var(--paper)" stroke-width="5"/>
+        <path d="M1034 462 H1136" fill="none"/>
+      </g>
+    </svg>
+
+    <ul class="menu-list">
+      <li><a href="projects.html">projects</a></li>
+      <li><a href="about.html">about me</a></li>
+      <li><a href="fun.html">fun stuff</a></li>
+    </ul>
+  </main>
+
+  <footer class="site-footer">
+    <a href="assets/resume.pdf" target="_blank" rel="noopener">resume</a><span class="dot">·</span>
+    <a href="https://github.com/michellezuo" target="_blank" rel="noopener">github</a><span class="dot">·</span>
+    <a href="https://www.linkedin.com/in/michellezuo/" target="_blank" rel="noopener">linkedin</a>
+  </footer>
+
+  <script>
+    // snow outside the window
+    const snow = document.getElementById('snow');
+    for (let i = 0; i < 40; i++) {
+      const c = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+      c.setAttribute('cx', 462 + Math.random() * 276);
+      c.setAttribute('cy', 150 + Math.random() * 60);
+      c.setAttribute('r', 1.2 + Math.random() * 2.2);
+      c.style.animationDuration = (6 + Math.random() * 8) + 's';
+      c.style.animationDelay = (-Math.random() * 14) + 's';
+      snow.appendChild(c);
+    }
+
+    // sink tap toggles water
+    const sink = document.getElementById('sink');
+    const toggle = () => {
+      const on = sink.classList.toggle('on');
+      sink.setAttribute('aria-pressed', on);
+    };
+    sink.addEventListener('click', toggle);
+    sink.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
+    });
+  </script>
+</body>
+</html>
