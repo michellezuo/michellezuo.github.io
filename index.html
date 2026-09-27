@@ -8,19 +8,20 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍪</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Dongle:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="kitchen-page">
 
   <header class="hello">
     <h1>Michelle Zuo</h1>
-    <p>math + cs @ duke &nbsp;·&nbsp; aspiring swe &nbsp;·&nbsp; always baking something</p>
+    <p>math + computer science at Duke &nbsp;·&nbsp; aspiring software engineer &nbsp;·&nbsp; always baking something</p>
+    <p class="hint">click around the kitchen</p>
   </header>
 
   <main class="kitchen-wrap">
     <svg class="kitchen" viewBox="0 0 1200 780" role="img" aria-labelledby="kt">
-      <title id="kt">A cozy kitchen. Click the oven for projects, the recipe book for about me, and the cookie jar for fun stuff.</title>
+      <title id="kt">A cozy kitchen. Click the oven for projects, the recipe book for about me, and the dessert counter for fun stuff.</title>
       <defs>
         <linearGradient id="night" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0" stop-color="#1f2944"/>
@@ -86,8 +87,8 @@
             <circle cx="104" cy="472" r="8"/><circle cx="138" cy="472" r="8"/>
             <circle cx="262" cy="472" r="8"/><circle cx="296" cy="472" r="8"/>
           </g>
-          <rect x="176" y="463" width="48" height="18" rx="3" fill="var(--ink)"/>
-          <text x="200" y="477" text-anchor="middle" font-family="Dongle" font-size="22" fill="var(--mustard)">3:50</text>
+          <text x="208" y="478" text-anchor="middle" class="serif" font-size="19" font-weight="600" fill="var(--line)">projects</text>
+          <line class="uline" x1="176" y1="483" x2="240" y2="483" stroke="var(--terracotta)" stroke-width="2"/>
 
           <!-- cooktop -->
           <rect x="66" y="488" width="268" height="12" rx="3" fill="#e2d5ba" class="ol"/>
@@ -140,11 +141,6 @@
           <path d="M180 440 q-10 -14 0 -28 q10 -14 0 -28"/>
           <path d="M200 440 q-10 -14 0 -28 q10 -14 0 -28"/>
           <path d="M220 440 q-10 -14 0 -28 q10 -14 0 -28"/>
-        </g>
-
-        <g class="tag">
-          <rect x="226" y="384" width="112" height="42" rx="12"/>
-          <text x="282" y="416" text-anchor="middle">projects</text>
         </g>
       </a>
 
@@ -279,66 +275,123 @@
         <rect x="918" y="272" width="46" height="10" rx="3" fill="var(--wood)"/>
         <rect x="920" y="300" width="42" height="20" rx="6" fill="#e8d7b8" stroke="none"/>
       </g>
-      <text x="885" y="300" text-anchor="middle" font-family="Dongle" font-size="20" fill="var(--line)">flour</text>
-      <text x="941" y="302" text-anchor="middle" font-family="Dongle" font-size="20" fill="var(--line)">sugar</text>
+      <text x="885" y="302" text-anchor="middle" class="serif" font-size="12" fill="var(--line)">flour</text>
+      <text x="941" y="304" text-anchor="middle" class="serif" font-size="12" fill="var(--line)">sugar</text>
 
-      <!-- ============ COOKIE JAR → fun ============ -->
-      <a id="jar" class="hotspot" href="fun.html" aria-label="Open the cookie jar: fun stuff">
-        <g class="lift">
-          <g class="ol" stroke-width="2.5">
-            <path d="M992 262 H1100 V306 Q1100 320 1086 320 H1006 Q992 320 992 306 Z" fill="#f7efe0" fill-opacity=".85"/>
-            <g fill="#d9a05c" stroke-width="2">
-              <circle cx="1014" cy="302" r="13"/><circle cx="1044" cy="306" r="13"/>
-              <circle cx="1076" cy="302" r="13"/><circle cx="1030" cy="282" r="13"/>
-              <circle cx="1062" cy="282" r="13"/>
-            </g>
-            <rect x="986" y="250" width="120" height="14" rx="5" fill="var(--terracotta)"/>
-            <ellipse cx="1046" cy="248" rx="10" ry="6" fill="var(--mustard)"/>
-          </g>
-          <g fill="#3e2114">
-            <circle cx="1011" cy="298" r="2.2"/><circle cx="1018" cy="306" r="2"/>
-            <circle cx="1041" cy="303" r="2.2"/><circle cx="1049" cy="309" r="2"/>
-            <circle cx="1072" cy="298" r="2.2"/><circle cx="1080" cy="306" r="2"/>
-            <circle cx="1027" cy="279" r="2.2"/><circle cx="1059" cy="285" r="2.2"/>
-          </g>
-          <path d="M1000 270 V300" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity=".7"/>
-        </g>
-        <g class="tag">
-          <rect x="984" y="340" width="124" height="42" rx="12"/>
-          <text x="1046" y="372" text-anchor="middle">fun stuff</text>
-        </g>
-      </a>
+      <!-- cake tins + vanilla on the shelf -->
+      <g class="ol" stroke-width="2.5">
+        <rect x="1000" y="296" width="62" height="24" rx="3" fill="#b9c2c2"/>
+        <rect x="1005" y="276" width="52" height="20" rx="3" fill="#c9d1d1"/>
+        <path d="M1088 320 V294 q0 -8 8 -8 V278 h8 V286 q8 0 8 8 V320 Z" fill="#7a4a2a"/>
+        <rect x="1088" y="298" width="24" height="12" fill="var(--paper)" stroke-width="2"/>
+        <rect x="1094" y="270" width="12" height="8" fill="var(--line)" stroke-width="2"/>
+      </g>
 
       <!-- ============ RECIPE BOOK → about ============ -->
-      <a id="book" class="hotspot" href="about.html" aria-label="Read the recipe book: about me">
+      <a id="book" class="hotspot" href="about.html" aria-label="Recipe for Michelle: about me">
         <g class="lift">
           <g class="ol" stroke-width="2.5">
-            <path d="M880 500 L934 430 L988 500" fill="none" stroke="var(--wood)" stroke-width="6"/>
-            <path d="M862 488 L936 476 L936 414 L868 424 Z" fill="var(--paper)"/>
-            <path d="M1010 488 L936 476 L936 414 L1004 424 Z" fill="var(--paper)"/>
-            <path d="M858 492 L936 480 L1014 492" fill="none" stroke="var(--terracotta)" stroke-width="5"/>
+            <path d="M380 500 L420 444 L460 500" fill="none" stroke="var(--wood)" stroke-width="6"/>
+            <path d="M346 490 L420 478 L420 402 L352 412 Z" fill="var(--paper)"/>
+            <path d="M494 490 L420 478 L420 402 L488 412 Z" fill="var(--paper)"/>
+            <path d="M342 494 L420 482 L498 494" fill="none" stroke="var(--terracotta)" stroke-width="5"/>
+            <path d="M426 482 v18 l4 -5 l4 5 v-18" fill="var(--terracotta)" stroke-width="2"/>
           </g>
-          <g stroke="#b8a88f" stroke-width="2" stroke-linecap="round">
-            <path d="M878 440 L924 433"/><path d="M878 450 L924 443"/><path d="M878 460 L914 454"/>
-            <path d="M948 433 L992 440"/><path d="M948 443 L992 450"/>
+          <text x="386" y="434" text-anchor="middle" class="serif" font-size="17" font-weight="600" fill="var(--line)" transform="rotate(-8.4 386 434)">Recipe:</text>
+          <text x="455" y="434" text-anchor="middle" class="serif" font-size="15" font-weight="600" fill="var(--line)" transform="rotate(8.4 455 434)">Michelle</text>
+          <text x="455" y="452" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-size="13" fill="var(--terracotta)" transform="rotate(8.4 455 452)">(about me)</text>
+          <line class="uline" x1="428" y1="435" x2="482" y2="443" stroke="var(--terracotta)" stroke-width="1.5"/>
+          <g stroke="#c9b99e" stroke-width="1.5" stroke-linecap="round">
+            <path d="M362 452 L410 445"/><path d="M362 462 L410 455"/><path d="M362 472 L398 467"/>
+            <path d="M432 466 L480 473"/><path d="M432 476 L468 481"/>
           </g>
-          <circle cx="970" cy="463" r="9" fill="var(--terracotta)" stroke="var(--line)" stroke-width="2"/>
-          <text x="900" y="474" text-anchor="middle" font-family="Dongle" font-size="18" fill="var(--terracotta)">recipe</text>
-        </g>
-        <g class="tag">
-          <rect x="872" y="360" width="112" height="42" rx="12"/>
-          <text x="928" y="392" text-anchor="middle">about me</text>
         </g>
       </a>
 
-      <!-- mixing bowl + whisk -->
-      <g class="ol" stroke-width="2.5">
-        <path d="M1086 444 L1112 404" stroke-width="4"/>
-        <path d="M1112 404 q10 -18 2 -24 q-10 2 -10 20" fill="none"/>
-        <path d="M1034 462 H1136 Q1132 500 1085 500 Q1038 500 1034 462 Z" fill="#8fa39a"/>
-        <path d="M1038 462 H1132" stroke="var(--paper)" stroke-width="5"/>
-        <path d="M1034 462 H1136" fill="none"/>
-      </g>
+      <!-- ============ MESSY DESSERT COUNTER → fun ============ -->
+      <a id="desserts" class="hotspot" href="fun.html" aria-label="Today's bakes: fun stuff">
+        <!-- chalkboard hanging under the shelf -->
+        <g class="ol" stroke-width="2">
+          <path d="M1066 348 L1016 366 M1066 348 L1116 366" fill="none" stroke-width="1.5"/>
+          <circle cx="1066" cy="348" r="3" fill="var(--mustard)"/>
+          <rect x="1004" y="362" width="124" height="70" rx="4" fill="var(--wood)" stroke-width="2.5"/>
+          <rect x="1011" y="369" width="110" height="56" rx="2" fill="#2f3b33"/>
+        </g>
+        <text x="1066" y="387" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-size="13" fill="#cfcabb">today's bakes</text>
+        <text class="chalk serif" x="1066" y="412" text-anchor="middle" font-size="19" fill="#f3efe4">fun stuff</text>
+        <path class="uline" d="M1032 418 q17 4 34 0 q17 -4 34 0" fill="none" stroke="#f3efe4" stroke-width="1.5"/>
+
+        <g class="lift">
+          <!-- flour dusting + eggs -->
+          <path d="M772 502 q12 -4 24 0 q12 4 20 -1 q10 -2 6 5 q-24 5 -50 0 Z" fill="#fffaf1"/>
+          <path d="M934 503 q10 -3 18 0 q6 3 -2 4 q-12 1 -16 -4 Z" fill="#fffaf1"/>
+          <g class="ol" stroke-width="2.5" fill="#fbf5ea">
+            <ellipse cx="790" cy="490" rx="7" ry="10"/>
+            <path d="M801 500 Q802 486 811 486 Q820 486 821 500 Z"/>
+            <path d="M803 490 l3 -3 l3 3 l3 -3 l3 3 l3 -3 l2 3" fill="none" stroke-width="1.5"/>
+          </g>
+
+          <!-- cheesecake on a stand -->
+          <g class="ol" stroke-width="2.5">
+            <ellipse cx="870" cy="497" rx="26" ry="4" fill="#f3ead8"/>
+            <path d="M862 467 H878 L882 494 H858 Z" fill="#f3ead8"/>
+            <rect x="812" y="460" width="116" height="7" rx="3" fill="#f3ead8"/>
+            <rect x="822" y="448" width="92" height="12" fill="#c98a44"/>
+            <rect x="822" y="418" width="92" height="30" fill="#fbf1dc"/>
+            <path d="M820 418 H916 V424 q-6 8 -10 0 q-8 10 -14 0 q-8 8 -14 0 q-8 10 -16 0 q-8 8 -14 0 q-8 10 -14 0 q-6 6 -14 2 Z" fill="#c8453a" stroke-width="2"/>
+          </g>
+          <g class="ol" stroke-width="2">
+            <ellipse cx="838" cy="411" rx="6" ry="7" fill="#d94b3d"/>
+            <ellipse cx="858" cy="410" rx="6" ry="7" fill="#d94b3d"/>
+            <ellipse cx="878" cy="411" rx="6" ry="7" fill="#d94b3d"/>
+            <ellipse cx="898" cy="410" rx="6" ry="7" fill="#d94b3d"/>
+          </g>
+          <g fill="#86a06a">
+            <path d="M834 404 l4 3 l4 -3 l-4 -2 Z"/><path d="M854 403 l4 3 l4 -3 l-4 -2 Z"/>
+            <path d="M874 404 l4 3 l4 -3 l-4 -2 Z"/><path d="M894 403 l4 3 l4 -3 l-4 -2 Z"/>
+          </g>
+
+          <!-- a slice already cut -->
+          <g class="ol" stroke-width="2.5">
+            <ellipse cx="958" cy="497" rx="28" ry="4" fill="var(--paper)"/>
+            <path d="M936 493 H980 V486 H936 Z" fill="#c98a44" stroke-width="2"/>
+            <path d="M936 486 H980 V464 L936 478 Z" fill="#fbf1dc" stroke-width="2"/>
+            <path d="M936 478 L980 464 V459 L936 473 Z" fill="#c8453a" stroke-width="2"/>
+            <ellipse cx="968" cy="456" rx="5" ry="6" fill="#d94b3d" stroke-width="2"/>
+          </g>
+
+          <!-- fruit tarts on a board -->
+          <rect x="996" y="492" width="142" height="8" rx="3" fill="var(--wood)" class="ol" stroke-width="2.5"/>
+          <g class="ol" stroke-width="2.5" fill="#d9a05c">
+            <path d="M1001 476 H1043 L1039 492 H1005 Z"/>
+            <path d="M1047 476 H1089 L1085 492 H1051 Z"/>
+            <path d="M1093 476 H1135 L1131 492 H1097 Z"/>
+          </g>
+          <g stroke="#a86a31" stroke-width="1.5">
+            <path d="M1010 479 V489 M1018 479 V489 M1026 479 V489 M1034 479 V489"/>
+            <path d="M1056 479 V489 M1064 479 V489 M1072 479 V489 M1080 479 V489"/>
+            <path d="M1102 479 V489 M1110 479 V489 M1118 479 V489 M1126 479 V489"/>
+          </g>
+          <g class="ol" stroke-width="2">
+            <!-- strawberry tart -->
+            <path d="M1007 476 a7 7 0 0 1 14 0 Z" fill="#d94b3d"/>
+            <path d="M1023 476 a7 7 0 0 1 14 0 Z" fill="#d94b3d"/>
+            <circle cx="1022" cy="467" r="4" fill="#3d4b7a"/>
+            <!-- kiwi + mandarin tart -->
+            <circle cx="1060" cy="471" r="7" fill="#9cc36a"/>
+            <circle cx="1077" cy="471" r="6" fill="#f0a040"/>
+            <!-- blueberry tart -->
+            <circle cx="1102" cy="472" r="4.5" fill="#3d4b7a"/>
+            <circle cx="1111" cy="470" r="4.5" fill="#3d4b7a"/>
+            <circle cx="1120" cy="472" r="4.5" fill="#3d4b7a"/>
+            <circle cx="1129" cy="473" r="4" fill="#3d4b7a"/>
+            <path d="M1108 465 a6 6 0 0 1 12 0 Z" fill="#d94b3d"/>
+          </g>
+          <circle cx="1060" cy="471" r="2.5" fill="#eef0c6"/>
+          <!-- stray strawberry -->
+          <ellipse cx="990" cy="495" rx="5" ry="6" fill="#d94b3d" class="ol" stroke-width="2"/>
+        </g>
+      </a>
     </svg>
 
     <ul class="menu-list">
@@ -349,9 +402,16 @@
   </main>
 
   <footer class="site-footer">
-    <a href="assets/resume.pdf" target="_blank" rel="noopener">resume</a><span class="dot">·</span>
-    <a href="https://github.com/michellezuo" target="_blank" rel="noopener">github</a><span class="dot">·</span>
-    <a href="https://www.linkedin.com/in/michellezuo/" target="_blank" rel="noopener">linkedin</a>
+    <div class="footer-inner">
+      <!-- blank for now: drop a drawing in here later, e.g. <img src="assets/footer.png" alt=""> -->
+      <div class="footer-art" aria-hidden="true"></div>
+      <nav class="footer-links" aria-label="Elsewhere">
+        <a href="assets/resume.pdf" target="_blank" rel="noopener">Resume ↗</a>
+        <a href="https://github.com/michellezuo" target="_blank" rel="noopener">GitHub ↗</a>
+        <a href="https://www.linkedin.com/in/michellezuo/" target="_blank" rel="noopener">LinkedIn ↗</a>
+      </nav>
+    </div>
+    <p class="footer-copy">© 2026 Michelle Zuo · designed &amp; baked by me</p>
   </footer>
 
   <script>

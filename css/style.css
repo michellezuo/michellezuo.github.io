@@ -15,69 +15,90 @@
   --paper: #fffaf1;
 
   --f-display: "Playfair Display", Georgia, serif;
-  --f-cute: "Dongle", "Helvetica Neue", Helvetica, sans-serif;
+  --f-serif: "Cormorant Garamond", Georgia, serif;
   --f-body: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 * { box-sizing: border-box; }
 html, body { margin: 0; }
+html { overflow-x: clip; } /* hidden popups shouldn't cause sideways scroll */
 body {
   font-family: var(--f-body);
   color: var(--ink);
   background: #fff;
   -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
+body > main { flex: 1 0 auto; }
 a { color: inherit; }
 
-/* ---------- google-docs style footer, bottom right on every page ---------- */
+/* ---------- footer on every page (content above, rule, drawing + links) ---------- */
 .site-footer {
-  position: fixed;
-  right: 16px;
-  bottom: 14px;
-  z-index: 50;
+  margin-top: 48px;
+  border-top: 1px solid rgba(75, 42, 28, .25);
+  background: rgba(255, 250, 241, .55);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  color: rgba(43, 26, 18, .6);
+}
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 28px 16px 20px;
   display: flex;
-  gap: 4px;
-  align-items: center;
-  padding: 6px 8px;
-  background: var(--paper);
-  border: 2px solid var(--line);
-  border-radius: 999px;
-  box-shadow: 3px 3px 0 var(--line);
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+/* blank spot for a drawing later: drop an <img> in here */
+.footer-art {
+  flex: 1 1 260px;
+  min-height: 110px;
+}
+.footer-links {
+  display: flex;
+  gap: 22px;
   font-family: var(--f-body);
-  font-size: 13px;
-  letter-spacing: .02em;
+  font-size: 12px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
 }
-.site-footer a {
+.footer-links a {
   text-decoration: none;
-  padding: 4px 10px;
-  border-radius: 999px;
-  transition: background .15s;
+  transition: color .15s;
 }
-.site-footer a:hover,
-.site-footer a:focus-visible { background: var(--mustard); outline: none; }
-.site-footer .dot { opacity: .4; }
+.footer-links a:hover,
+.footer-links a:focus-visible { color: var(--ink); text-decoration: underline; text-underline-offset: 4px; }
+.footer-copy {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px 22px;
+  font-family: var(--f-serif);
+  font-style: italic;
+  font-size: 15px;
+  text-align: right;
+}
 
 /* back-to-kitchen link on subpages */
 .back {
   display: inline-block;
-  margin: 20px 16px 0;
-  font-family: var(--f-cute);
-  font-size: 30px;
-  line-height: 1;
+  margin: 22px 16px 0;
+  font-family: var(--f-serif);
+  font-style: italic;
+  font-size: 20px;
   text-decoration: none;
   color: var(--terracotta);
 }
-.back:hover { text-decoration: underline; }
+.back:hover { text-decoration: underline; text-underline-offset: 4px; }
 
 /* ---------- landing / kitchen ---------- */
-body.kitchen-page {
-  background: var(--cream);
-  min-height: 100vh;
-  overflow-x: hidden;
-}
+body.kitchen-page { background: var(--cream); }
 .hello {
   text-align: center;
-  padding: 28px 16px 0;
+  padding: 30px 16px 0;
 }
 .hello h1 {
   margin: 0;
@@ -89,32 +110,39 @@ body.kitchen-page {
   letter-spacing: -.01em;
 }
 .hello p {
-  margin: 2px 0 0;
-  font-family: var(--f-cute);
-  font-size: clamp(24px, 3vw, 32px);
-  line-height: 1;
+  margin: 4px 0 0;
+  font-family: var(--f-serif);
+  font-style: italic;
+  font-size: clamp(18px, 2.2vw, 23px);
   color: var(--rust);
+}
+.hello .hint {
+  margin-top: 6px;
+  font-family: var(--f-body);
+  font-style: normal;
+  font-size: 11px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: rgba(75, 42, 28, .5);
 }
 .kitchen-wrap {
   max-width: 1200px;
-  margin: 8px auto 0;
-  padding: 0 16px 70px;
+  width: 100%;
+  margin: 12px auto 0;
+  padding: 0 16px;
 }
 .kitchen { width: 100%; height: auto; display: block; }
 .kitchen .ol { stroke: var(--line); stroke-width: 3; stroke-linejoin: round; stroke-linecap: round; }
+.kitchen .serif { font-family: var(--f-display); font-style: italic; }
 
 /* clickable things in the kitchen */
 .hotspot { cursor: pointer; outline: none; }
 .hotspot .lift { transition: transform .25s ease; transform-box: fill-box; transform-origin: center bottom; }
 .hotspot:hover .lift,
 .hotspot:focus-visible .lift { transform: translateY(-6px); }
-.tag rect { fill: var(--paper); stroke: var(--line); stroke-width: 2.5; }
-.tag text { font-family: var(--f-cute); font-size: 34px; fill: var(--line); }
-.tag { transition: transform .2s ease; transform-box: fill-box; transform-origin: center; }
-.hotspot:hover .tag,
-.hotspot:focus-visible .tag { transform: scale(1.12) rotate(-2deg); }
-.hotspot:hover .tag rect,
-.hotspot:focus-visible .tag rect { fill: var(--mustard); }
+.hotspot .uline { opacity: 0; transition: opacity .2s; }
+.hotspot:hover .uline,
+.hotspot:focus-visible .uline { opacity: 1; }
 
 /* oven glow */
 .oven-glow { opacity: .15; transition: opacity .35s ease; }
@@ -122,7 +150,8 @@ body.kitchen-page {
 #oven:hover .oven-glow, #oven:focus-visible .oven-glow { opacity: 1; }
 #oven:hover .oven-hot,  #oven:focus-visible .oven-hot  { opacity: 1; }
 .steam path { fill: none; stroke: #fff; stroke-width: 4; stroke-linecap: round; opacity: 0; }
-#oven:hover .steam path, #oven:focus-visible .steam path { animation: steam 2.2s ease-in-out infinite; }
+#oven:hover .steam path, #oven:focus-visible .steam path,
+#desserts:hover .steam path, #desserts:focus-visible .steam path { animation: steam 2.2s ease-in-out infinite; }
 .steam path:nth-child(2) { animation-delay: .5s !important; }
 .steam path:nth-child(3) { animation-delay: 1s !important; }
 @keyframes steam {
@@ -130,6 +159,10 @@ body.kitchen-page {
   40%  { opacity: .8; }
   100% { opacity: 0; transform: translateY(-26px); }
 }
+
+/* chalkboard brightens on hover */
+#desserts .chalk { transition: fill .2s; }
+#desserts:hover .chalk, #desserts:focus-visible .chalk { fill: #fff6c9; }
 
 /* snow */
 .snow circle { fill: #fff; animation: fall linear infinite; }
@@ -155,14 +188,14 @@ body.kitchen-page {
   margin: 20px 0 0;
   padding: 0;
   text-align: center;
-  font-family: var(--f-cute);
-  font-size: 32px;
-  line-height: 1.2;
+  font-family: var(--f-display);
+  font-style: italic;
+  font-size: 22px;
+  line-height: 1.7;
 }
 .menu-list a { color: var(--terracotta); }
 @media (max-width: 640px) {
   .menu-list { display: block; }
-  .tag text { font-size: 44px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -172,8 +205,9 @@ body.kitchen-page {
 /* ---------- plain white pages (about / fun) ---------- */
 .plain {
   max-width: 820px;
+  width: 100%;
   margin: 0 auto;
-  padding: 24px 16px 110px;
+  padding: 24px 16px 40px;
 }
 .plain h1 {
   font-family: var(--f-display);
@@ -182,9 +216,9 @@ body.kitchen-page {
   margin: 12px 0 4px;
 }
 .plain .kicker {
-  font-family: var(--f-cute);
-  font-size: 30px;
-  line-height: 1;
+  font-family: var(--f-serif);
+  font-style: italic;
+  font-size: 22px;
   color: var(--terracotta);
   margin: 0 0 32px;
 }
@@ -204,15 +238,15 @@ body.kitchen-page {
 }
 .photo-slot {
   aspect-ratio: 4 / 5;
-  border: 2px dashed #cdbfa6;
+  border: 1.5px dashed #cdbfa6;
   border-radius: 14px;
   display: grid;
   place-items: center;
-  font-family: var(--f-cute);
-  font-size: 26px;
+  font-family: var(--f-serif);
+  font-style: italic;
+  font-size: 18px;
   color: #a8997f;
   text-align: center;
-  line-height: 1;
 }
 .entries { list-style: none; margin: 0; padding: 0; }
 .entries li {
@@ -225,10 +259,10 @@ body.kitchen-page {
 .entries .when { color: #8a7d6b; font-size: 14px; white-space: nowrap; }
 .entries .detail { grid-column: 1 / -1; color: #5b4c40; font-size: 15px; line-height: 1.5; }
 .tbd {
-  font-family: var(--f-cute);
-  font-size: 28px;
+  font-family: var(--f-serif);
+  font-style: italic;
+  font-size: 22px;
   color: #a8997f;
-  line-height: 1.1;
 }
 @media (max-width: 560px) {
   .about-top { grid-template-columns: 1fr; }
@@ -236,13 +270,10 @@ body.kitchen-page {
   .entries li { grid-template-columns: 1fr; }
 }
 
-/* ---------- projects / cookie tray ---------- */
+/* ---------- projects / baking tray ---------- */
 body.tray-page {
-  background:
-    radial-gradient(ellipse at 50% 30%, #7a3f1f 0%, #4a2616 55%, #2c170d 100%);
-  min-height: 100vh;
+  background: radial-gradient(ellipse at 50% 30%, #7a3f1f 0%, #4a2616 55%, #2c170d 100%) fixed;
   color: var(--cream);
-  overflow-x: hidden;
 }
 .tray-page .back { color: var(--mustard); }
 .tray-head { text-align: center; padding: 8px 16px 0; }
@@ -255,18 +286,18 @@ body.tray-page {
   color: var(--cream);
 }
 .tray-head p {
-  margin: 0;
-  font-family: var(--f-cute);
-  font-size: clamp(24px, 3vw, 32px);
-  line-height: 1;
+  margin: 4px 0 0;
+  font-family: var(--f-serif);
+  font-style: italic;
+  font-size: clamp(18px, 2.2vw, 22px);
   color: var(--mustard);
 }
 .tray-stage {
   position: relative;
   max-width: 880px;
+  width: 100%;
   margin: 80px auto 0;
-  padding: 0 16px 120px;
-  overflow-x: clip; /* hidden popups shouldn't cause sideways scroll */
+  padding: 0 16px;
 }
 .tray {
   position: relative;
@@ -312,62 +343,33 @@ body.tray-page {
   padding: 0;
   cursor: pointer;
   background: none;
-  transition: transform .25s ease, filter .25s ease;
-  filter: drop-shadow(0 6px 4px rgba(60,30,10,.35));
+  transition: transform .25s ease;
 }
 .cookie:hover,
 .cookie:focus-visible,
-.cookie.open { transform: translateY(-8px) rotate(-4deg) scale(1.05); outline: none; filter: drop-shadow(0 14px 8px rgba(60,30,10,.35)); }
-.cookie:focus-visible .dough { box-shadow: 0 0 0 4px var(--mustard), inset -6px -8px 0 rgba(0,0,0,.08); }
-.dough {
+.cookie.open { transform: translateY(-8px) scale(1.04); outline: none; }
+.cookie img { width: 100%; height: 100%; object-fit: contain; display: block; }
+/* empty spot on the parchment until the hand-drawn cookie goes in */
+.cookie .blank {
   position: absolute;
-  inset: 0;
-  border: 3px solid var(--line);
-  border-radius: 52% 48% 50% 50% / 48% 52% 48% 52%;
-  box-shadow: inset -6px -8px 0 rgba(0,0,0,.1), inset 6px 6px 0 rgba(255,255,255,.18);
-  overflow: hidden;
+  inset: 8%;
+  border-radius: 50%;
+  border: 1.5px dashed rgba(75, 42, 28, .35);
+  background: rgba(255, 255, 255, .25);
 }
-.chip { position: absolute; border-radius: 40% 60% 50% 45%; }
-
-/* cookie varieties */
-.cookie[data-kind="chocchip"] .dough   { background: radial-gradient(circle at 45% 40%, #e8b36a, #c98a44 70%, #a86a31); }
-.cookie[data-kind="chocchip"] .chip    { background: #3e2114; }
-.cookie[data-kind="snickerdoodle"] .dough { background: radial-gradient(circle at 45% 40%, #f0d29a, #d9ad6a 70%, #b98a4e); }
-.cookie[data-kind="snickerdoodle"] .chip  { background: #9a5a2b; opacity: .55; border-radius: 50%; }
-.cookie[data-kind="biscoff"] { width: calc(var(--size) * 1.05); height: calc(var(--size) * .72); align-self: center; }
-.cookie[data-kind="biscoff"] .dough {
-  border-radius: 12px;
-  background: linear-gradient(#c5773a, #a95f2a);
-  outline: 3px dashed rgba(75,42,28,.45);
-  outline-offset: -14px;
-}
-.cookie[data-kind="biscoff"] .chip { display: none; }
-.cookie[data-kind="biscoff"] .dough::after {
-  content: "michelle";
-  position: absolute; inset: 0;
-  display: grid; place-items: center;
-  font-family: var(--f-display); font-style: italic; font-weight: 600;
-  font-size: calc(var(--size) * .16);
-  color: rgba(75,42,28,.55);
-}
-.cookie[data-kind="doublechoc"] .dough { background: radial-gradient(circle at 45% 40%, #6f3f25, #53301c 70%, #3e2214); }
-.cookie[data-kind="doublechoc"] .chip  { background: #f4e7d0; }
-.cookie[data-kind="matcha"] .dough     { background: radial-gradient(circle at 45% 40%, #b9c47d, #939f58 70%, #76823f); }
-.cookie[data-kind="matcha"] .chip      { background: #fbf5e6; }
-.cookie[data-kind="sprinkle"] .dough   { background: radial-gradient(circle at 45% 40%, #fbe9d0, #f0d3ad 70%, #ddb98a); }
-.cookie[data-kind="sprinkle"] .chip    { border-radius: 3px; }
+.cookie:focus-visible .blank { border-color: var(--terracotta); border-style: solid; }
 
 .cookie-name {
   margin-top: 10px;
-  font-family: var(--f-cute);
-  font-size: 26px;
-  line-height: 1;
+  font-family: var(--f-serif);
+  font-style: italic;
+  font-size: 18px;
   color: var(--line);
   position: relative;
   text-align: center;
 }
 
-/* the little bakery price-tag popup */
+/* the little bakery-tag popup */
 .card {
   position: absolute;
   top: calc(100% - 6px);
@@ -377,9 +379,9 @@ body.tray-page {
   padding: 14px 16px 16px;
   background: var(--paper);
   color: var(--ink);
-  border: 2.5px solid var(--line);
+  border: 1.5px solid var(--line);
   border-radius: 10px;
-  box-shadow: 5px 5px 0 var(--line);
+  box-shadow: 0 12px 30px rgba(40, 20, 10, .35);
   opacity: 0;
   pointer-events: none;
   transform: translate(calc(-50% + var(--nudge, 0px)), 6px);
@@ -418,4 +420,10 @@ body.tray-page {
 .tray-steam path:nth-child(3) { animation-delay: 1.6s; }
 .tray-steam path:nth-child(4) { animation-delay: 2.2s; }
 
-.tray-page .site-footer { color: var(--ink); }
+.tray-page .site-footer {
+  background: rgba(30, 15, 8, .35);
+  border-top-color: rgba(246, 236, 217, .2);
+  color: rgba(246, 236, 217, .6);
+}
+.tray-page .footer-links a:hover,
+.tray-page .footer-links a:focus-visible { color: var(--cream); }
