@@ -8,14 +8,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=6">
+  <link rel="stylesheet" href="css/style.css?v=8">
 </head>
 <body class="tray-page">
   <a class="back" href="index.html">← back to the kitchen</a>
 
   <header class="tray-head">
     <h1>Fresh out of the oven</h1>
-    <p>hover over (or tap) a cookie to see what's baking</p>
+    <p>hover over a cookie for a taste, click it for the full recipe</p>
   </header>
 
   <main class="tray-stage">
@@ -30,6 +30,11 @@
     </div>
   </main>
 
+  <dialog id="recipe" class="recipe" aria-label="Project details">
+    <button class="recipe-close" type="button" aria-label="Close">×</button>
+    <div class="recipe-body"></div>
+  </dialog>
+
   <footer class="site-footer">
     <div class="footer-inner">
       <!-- blank for now: drop a drawing in here later, e.g. <img src="assets/footer.png" alt=""> -->
@@ -43,6 +48,6 @@
     <p class="footer-copy">© 2026 Michelle Zuo · designed &amp; baked by me</p>
   </footer>
 
-  <script src="js/projects.js?v=6"></script>
+  <script src="js/projects.js?v=8"></script>
 </body>
 </html>

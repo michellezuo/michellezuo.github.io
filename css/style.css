@@ -340,17 +340,17 @@ body.tray-page {
   position: relative;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 34px 26px;
+  gap: 30px 20px;
   justify-items: center;
 }
 @media (max-width: 600px) {
-  .cookies { grid-template-columns: repeat(2, 1fr); gap: 22px 14px; }
+  .cookies { grid-template-columns: 1fr; gap: 26px; }
   .tray { padding: 36px 22px; }
 }
 
 .cookie-slot { position: relative; width: 100%; display: grid; justify-items: center; }
 .cookie {
-  --size: min(170px, 34vw);
+  --size: min(225px, 23vw);
   position: relative;
   width: var(--size);
   height: var(--size);
@@ -363,6 +363,9 @@ body.tray-page {
 .cookie:hover,
 .cookie:focus-visible,
 .cookie.open { transform: translateY(-8px) scale(1.04); outline: none; }
+@media (max-width: 600px) {
+  .cookie { --size: min(230px, 62vw); }
+}
 .cookie img {
   width: 100%;
   height: 100%;
@@ -371,21 +374,12 @@ body.tray-page {
   filter: drop-shadow(0 6px 5px rgba(80, 40, 15, .35));
 }
 .cookie:focus-visible img { filter: drop-shadow(0 0 0 var(--terracotta)) drop-shadow(0 0 4px var(--mustard)); }
-/* empty spot on the parchment until the hand-drawn cookie goes in */
-.cookie .blank {
-  position: absolute;
-  inset: 8%;
-  border-radius: 50%;
-  border: 1.5px dashed rgba(75, 42, 28, .35);
-  background: rgba(255, 255, 255, .25);
-}
-.cookie:focus-visible .blank { border-color: var(--terracotta); border-style: solid; }
 
 .cookie-name {
-  margin-top: 10px;
-  font-family: var(--f-serif);
+  margin-top: 4px;
+  font-family: var(--f-display);
   font-style: italic;
-  font-size: 18px;
+  font-size: 20px;
   color: var(--line);
   position: relative;
   text-align: center;
@@ -394,10 +388,10 @@ body.tray-page {
 /* the little bakery-tag popup */
 .card {
   position: absolute;
-  top: calc(100% - 6px);
+  top: calc(100% + 8px);
   left: 50%;
   z-index: 20;
-  width: min(290px, calc(100vw - 32px));
+  width: min(320px, calc(100vw - 32px));
   padding: 14px 16px 16px;
   background: var(--paper);
   color: var(--ink);
@@ -416,16 +410,83 @@ body.tray-page {
 }
 .card h3 { margin: 0 0 4px; font-family: var(--f-display); font-size: 20px; }
 .card p  { margin: 0 0 10px; font-size: 14px; line-height: 1.45; color: #5b4c40; }
-.card .chips { display: flex; flex-wrap: wrap; gap: 6px; }
-.card .chips span {
+.card .card-meta { font-size: 12px; color: #8a7d6b; margin-bottom: 8px; }
+.card .card-hint { margin: 10px 0 0; font-family: var(--f-serif); font-style: italic; font-size: 16px; color: var(--terracotta); }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chips span {
   font-size: 12px;
   padding: 2px 8px;
   border-radius: 999px;
   background: #f2e4c8;
   border: 1px solid #d9c5a0;
 }
-.card .links { margin-top: 10px; font-size: 13px; }
-.card .links a { color: var(--terracotta); font-weight: 600; margin-right: 12px; }
+.links { margin-top: 18px; font-size: 14px; }
+.links a { color: var(--terracotta); font-weight: 600; margin-right: 16px; }
+
+/* the full recipe card (opens on click) */
+.recipe {
+  width: min(760px, calc(100vw - 32px));
+  max-height: calc(100vh - 48px);
+  padding: 0;
+  border: 1.5px solid var(--line);
+  border-radius: 14px;
+  background: var(--paper);
+  color: var(--ink);
+  box-shadow: 0 30px 80px rgba(20, 10, 5, .5);
+  overflow: auto;
+}
+.recipe::backdrop { background: rgba(30, 15, 8, .6); backdrop-filter: blur(2px); }
+.recipe[open] { animation: recipe-in .22s ease; }
+@keyframes recipe-in { from { opacity: 0; transform: translateY(12px); } }
+.recipe-body {
+  padding: 40px 48px 44px;
+}
+.recipe-close {
+  position: sticky;
+  top: 10px;
+  float: right;
+  margin: 10px 10px 0 0;
+  width: 36px;
+  height: 36px;
+  border: 1.5px solid var(--line);
+  border-radius: 50%;
+  background: var(--paper);
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+}
+.recipe-close:hover, .recipe-close:focus-visible { background: var(--mustard); outline: none; }
+.recipe-kicker {
+  margin: 0;
+  font-family: var(--f-body);
+  font-size: 11px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+}
+.recipe-title {
+  margin: 4px 0 2px;
+  font-family: var(--f-display);
+  font-style: italic;
+  font-weight: 600;
+  font-size: clamp(30px, 5vw, 42px);
+  line-height: 1.1;
+}
+.recipe-meta { margin: 0 0 8px; padding-bottom: 18px; border-bottom: 1.5px solid var(--terracotta); font-family: var(--f-serif); font-style: italic; font-size: 19px; color: #7a6a58; }
+.recipe h3 {
+  margin: 28px 0 8px;
+  font-family: var(--f-display);
+  font-weight: 600;
+  font-size: 20px;
+}
+.recipe p, .recipe li { font-size: 15.5px; line-height: 1.65; color: #4a3b30; }
+.recipe p { margin: 0; }
+.recipe ol { margin: 0; padding-left: 22px; }
+.recipe li { margin: 6px 0; padding-left: 4px; }
+.recipe li::marker { font-family: var(--f-display); font-weight: 600; color: var(--terracotta); }
+@media (max-width: 600px) {
+  .recipe-body { padding: 28px 22px 32px; }
+}
 
 .tray-steam {
   position: absolute;
