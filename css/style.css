@@ -258,6 +258,9 @@ body.kitchen-page { background: var(--cream); }
 .entries .what { font-weight: 600; }
 .entries .when { color: #8a7d6b; font-size: 14px; white-space: nowrap; }
 .entries .detail { grid-column: 1 / -1; color: #5b4c40; font-size: 15px; line-height: 1.5; }
+.entries .detail a,
+.detail-note a { color: var(--terracotta); }
+.detail-note { margin-top: 18px; font-family: var(--f-serif); font-style: italic; font-size: 19px; }
 .tbd {
   font-family: var(--f-serif);
   font-style: italic;
