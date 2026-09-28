@@ -363,7 +363,14 @@ body.tray-page {
 .cookie:hover,
 .cookie:focus-visible,
 .cookie.open { transform: translateY(-8px) scale(1.04); outline: none; }
-.cookie img { width: 100%; height: 100%; object-fit: contain; display: block; }
+.cookie img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 6px 5px rgba(80, 40, 15, .35));
+}
+.cookie:focus-visible img { filter: drop-shadow(0 0 0 var(--terracotta)) drop-shadow(0 0 4px var(--mustard)); }
 /* empty spot on the parchment until the hand-drawn cookie goes in */
 .cookie .blank {
   position: absolute;
