@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=4">
 </head>
 <body class="kitchen-page">
 
@@ -21,11 +21,11 @@
 
   <main class="kitchen-wrap">
     <svg class="kitchen" viewBox="0 0 1200 780" role="img" aria-labelledby="kt">
-      <title id="kt">A cozy kitchen. Click the oven for projects, the recipe book for about me, and the dessert counter for fun stuff.</title>
+      <title id="kt">A cozy kitchen. Click the oven for projects, the recipe book for about me, and the dessert counter for fun stuff. Autumn leaves drift past the window.</title>
       <defs>
-        <linearGradient id="night" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stop-color="#1f2944"/>
-          <stop offset="1" stop-color="#43537a"/>
+        <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#f7dcae"/>
+          <stop offset="1" stop-color="#eaa66a"/>
         </linearGradient>
         <radialGradient id="ovenHeat" cx=".5" cy=".6" r=".7">
           <stop offset="0" stop-color="#ffd98a"/>
@@ -154,12 +154,25 @@
 
       <!-- ============ WINDOW ============ -->
       <rect x="445" y="160" width="310" height="290" fill="var(--paper)" class="ol"/>
-      <rect x="462" y="177" width="276" height="256" fill="url(#night)"/>
+      <rect x="462" y="177" width="276" height="256" fill="url(#sky)"/>
       <g clip-path="url(#glass)">
-        <circle cx="690" cy="215" r="16" fill="#f7eed8"/>
-        <path d="M462 433 V386 Q520 350 580 380 Q640 346 700 372 Q724 380 738 372 V433 Z" fill="#f4f1ea"/>
-        <path d="M462 433 V408 Q540 388 610 410 Q680 392 738 404 V433 Z" fill="#e3e3e8"/>
-        <g class="snow" id="snow"></g>
+        <!-- low autumn sun -->
+        <circle cx="520" cy="300" r="22" fill="#fff1cc" opacity=".9"/>
+        <!-- far hills -->
+        <path d="M462 433 V352 Q520 322 590 346 Q650 318 738 340 V433 Z" fill="#c98a4b"/>
+        <!-- autumn trees -->
+        <g stroke="var(--line)" stroke-width="2">
+          <path d="M506 390 V352 M618 386 V340 M700 384 V356" stroke-width="4"/>
+          <circle cx="506" cy="346" r="20" fill="#c8453a"/>
+          <circle cx="492" cy="358" r="13" fill="#d9603a"/>
+          <circle cx="618" cy="330" r="24" fill="#e08a3a"/>
+          <circle cx="636" cy="346" r="14" fill="#d9a441"/>
+          <circle cx="700" cy="348" r="18" fill="#b5462f"/>
+        </g>
+        <!-- near field -->
+        <path d="M462 433 V392 Q540 372 610 392 Q680 376 738 388 V433 Z" fill="#a8703d"/>
+        <path d="M462 433 V414 Q560 400 640 414 Q700 406 738 412 V433 Z" fill="#8f5c32"/>
+        <g class="leaves" id="leaves"></g>
       </g>
       <g class="ol" fill="none">
         <rect x="462" y="177" width="276" height="256"/>
@@ -415,16 +428,19 @@
   </footer>
 
   <script>
-    // snow outside the window
-    const snow = document.getElementById('snow');
-    for (let i = 0; i < 40; i++) {
-      const c = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-      c.setAttribute('cx', 462 + Math.random() * 276);
-      c.setAttribute('cy', 150 + Math.random() * 60);
-      c.setAttribute('r', 1.2 + Math.random() * 2.2);
-      c.style.animationDuration = (6 + Math.random() * 8) + 's';
-      c.style.animationDelay = (-Math.random() * 14) + 's';
-      snow.appendChild(c);
+    // leaves drifting past the window
+    const leaves = document.getElementById('leaves');
+    const leafColors = ['#c8453a', '#e08a3a', '#d9a441', '#b5462f', '#e9b04f'];
+    for (let i = 0; i < 18; i++) {
+      const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+      g.setAttribute('transform', `translate(${462 + Math.random() * 276} ${160 + Math.random() * 30}) scale(${0.8 + Math.random() * 0.7})`);
+      const leaf = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+      leaf.setAttribute('d', 'M0 -6 Q6 0 0 6 Q-6 0 0 -6 Z M0 -6 V6');
+      leaf.setAttribute('fill', leafColors[i % leafColors.length]);
+      leaf.style.animationDuration = (7 + Math.random() * 7) + 's';
+      leaf.style.animationDelay = (-Math.random() * 14) + 's';
+      g.appendChild(leaf);
+      leaves.appendChild(g);
     }
 
     // sink tap toggles water

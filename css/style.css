@@ -164,11 +164,14 @@ body.kitchen-page { background: var(--cream); }
 #desserts .chalk { transition: fill .2s; }
 #desserts:hover .chalk, #desserts:focus-visible .chalk { fill: #fff6c9; }
 
-/* snow */
-.snow circle { fill: #fff; animation: fall linear infinite; }
-@keyframes fall {
-  from { transform: translateY(-20px); }
-  to   { transform: translateY(300px); }
+/* autumn leaves */
+.leaves path { stroke: rgba(75, 42, 28, .5); stroke-width: .8; animation: leaf linear infinite; }
+@keyframes leaf {
+  0%   { transform: translate(0, -30px) rotate(0deg); }
+  25%  { transform: translate(14px, 50px) rotate(90deg); }
+  50%  { transform: translate(-6px, 130px) rotate(200deg); }
+  75%  { transform: translate(12px, 210px) rotate(280deg); }
+  100% { transform: translate(-4px, 290px) rotate(360deg); }
 }
 
 /* sink easter egg */
