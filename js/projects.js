@@ -13,7 +13,7 @@ const PROJECTS = [
   {
     img: '', name: 'ADYN dashboard',
     title: 'ADYN (YC25) data dashboard · in progress',
-    blurb: 'With DIIG, a 5-person team analyzing ADYN’s customer, order, hormone and genotype data. We prioritized 9 research questions into a top-5 roadmap and are building a customizable dashboard demo so ADYN’s team can explore it themselves.',
+    blurb: 'With DIIG, a 5-person team analyzing ADYN’s customer, order, hormone and genotype data. We prioritized 9 research questions into a roadmap and are building a customizable dashboard demo so ADYN’s team can explore it themselves.',
     tags: ['Data analysis', 'EDA', 'Dashboards'],
     links: [],
   },
