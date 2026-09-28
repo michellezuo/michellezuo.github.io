@@ -248,6 +248,15 @@ body.kitchen-page { background: var(--cream); }
   color: #a8997f;
   text-align: center;
 }
+.photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: 50% 45%;
+  border-radius: 14px;
+}
 .entries { list-style: none; margin: 0; padding: 0; }
 .entries li {
   display: grid;
@@ -269,7 +278,7 @@ body.kitchen-page { background: var(--cream); }
 }
 @media (max-width: 560px) {
   .about-top { grid-template-columns: 1fr; }
-  .photo-slot { max-width: 200px; }
+  .photo-slot, .photo { max-width: 220px; }
   .entries li { grid-template-columns: 1fr; }
 }
 
