@@ -41,7 +41,7 @@ const PROJECTS = [
   {
     img: '', name: 'This website',
     title: 'This kitchen',
-    blurb: 'The site you’re on: a hand-built, baking-themed portfolio with an illustrated SVG kitchen. No frameworks, hosted on GitHub Pages.',
+    blurb: 'The site you’re on: a hand-built, baking-themed portfolio with an illustrated kitchen. Hosted on GitHub Pages. Currently a work in progress.',
     tags: ['HTML', 'CSS', 'JavaScript', 'SVG'],
     links: [{ label: 'GitHub', href: 'https://github.com/michellezuo/michellezuo.github.io' }],
   },
