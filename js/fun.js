@@ -80,10 +80,25 @@ function layout(board, pins) {
   board.replaceChildren(...cols);
 }
 
+// photos fade + slide up as they scroll into view
+const reveal = 'IntersectionObserver' in window
+  ? new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('in');
+        reveal.unobserve(entry.target);
+      });
+    }, { rootMargin: '0px 0px -8% 0px' })
+  : null;
+
 document.querySelectorAll('.board[data-board]').forEach(board => {
   const pins = (BOARDS[board.dataset.board] || []).map(makePin);
   layout(board, pins);
   window.addEventListener('resize', () => layout(board, pins));
+  pins.forEach(({ el }, i) => {
+    el.style.setProperty('--d', `${(i % 3) * 90}ms`);  // small stagger across a row (reveal only, not hover)
+    if (reveal) reveal.observe(el); else el.classList.add('in');
+  });
 });
 
 viewer.querySelector('.recipe-close').addEventListener('click', () => viewer.close());

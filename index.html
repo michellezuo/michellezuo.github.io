@@ -9,7 +9,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=13">
+  <script>try{if(localStorage.getItem('theme')==='dark')document.documentElement.dataset.theme='dark'}catch(e){}</script>
+  <link rel="stylesheet" href="css/style.css?v=16">
 </head>
 <body class="kitchen-page">
 
@@ -32,6 +33,10 @@
           <stop offset=".55" stop-color="#e9772f"/>
           <stop offset="1" stop-color="#7a2a12"/>
         </radialGradient>
+        <!-- night mode: cool, moonlit dimming (used by css when the lights are off) -->
+        <filter id="moonlight" color-interpolation-filters="sRGB">
+          <feColorMatrix type="matrix" values="0.30 0.03 0.03 0 0.01  0.02 0.33 0.05 0 0.015  0.03 0.07 0.47 0 0.04  0 0 0 1 0"/>
+        </filter>
         <clipPath id="glass"><rect x="462" y="177" width="276" height="256"/></clipPath>
         <clipPath id="ovenWin"><rect x="112" y="556" width="176" height="132" rx="12"/></clipPath>
       </defs>
@@ -151,7 +156,7 @@
       <rect x="462" y="177" width="276" height="256" fill="url(#sky)"/>
       <g clip-path="url(#glass)">
         <!-- low autumn sun -->
-        <circle cx="520" cy="300" r="22" fill="#fff1cc" opacity=".9"/>
+        <circle class="sun" cx="520" cy="300" r="22" fill="#fff1cc" opacity=".9"/>
         <!-- far hills -->
         <path d="M462 433 V352 Q520 322 590 346 Q650 318 738 340 V433 Z" fill="#c98a4b"/>
         <!-- autumn trees -->
@@ -204,22 +209,64 @@
 
       <!-- ============ COUNTER + CABINETS ============ -->
       <rect x="342" y="522" width="798" height="218" fill="var(--olive)" class="ol"/>
+      <!-- drawers -->
       <g class="ol" fill="var(--olive-dark)" stroke-width="2.5">
         <rect x="354" y="534" width="186" height="40" rx="4"/>
         <rect x="550" y="534" width="186" height="40" rx="4"/>
         <rect x="746" y="534" width="186" height="40" rx="4"/>
         <rect x="942" y="534" width="186" height="40" rx="4"/>
-        <rect x="354" y="584" width="186" height="144" rx="4"/>
-        <rect x="550" y="584" width="186" height="144" rx="4"/>
-        <rect x="746" y="584" width="186" height="144" rx="4"/>
-        <rect x="942" y="584" width="186" height="144" rx="4"/>
       </g>
       <g fill="var(--mustard)" class="ol" stroke-width="2">
         <circle cx="447" cy="554" r="5"/><circle cx="643" cy="554" r="5"/>
         <circle cx="839" cy="554" r="5"/><circle cx="1035" cy="554" r="5"/>
-        <circle cx="524" cy="656" r="5"/><circle cx="566" cy="656" r="5"/>
-        <circle cx="916" cy="656" r="5"/><circle cx="958" cy="656" r="5"/>
       </g>
+
+      <!-- cabinet doors: click to open. the insides are empty for now; draw things into .cab-inside later -->
+      <g class="cabinet" id="cabinet-1" role="button" tabindex="0" aria-pressed="false" aria-label="Open cabinet 1">
+        <g class="cab-inside">
+          <rect x="354" y="584" width="186" height="144" rx="4" fill="#3a2a1f" class="ol" stroke-width="2.5"/>
+          <rect x="360" y="590" width="174" height="14" fill="#2a1d15"/>
+          <line x1="358" y1="656" x2="536" y2="656" stroke="#6b4a33" stroke-width="5"/>
+        </g>
+        <g class="cab-door" style="transform-origin: 354px 656px">
+          <rect x="354" y="584" width="186" height="144" rx="4" fill="var(--olive-dark)" class="ol" stroke-width="2.5"/>
+          <circle cx="524" cy="656" r="5" fill="var(--mustard)" class="ol" stroke-width="2"/>
+        </g>
+      </g>
+      <g class="cabinet" id="cabinet-2" role="button" tabindex="0" aria-pressed="false" aria-label="Open cabinet 2">
+        <g class="cab-inside">
+          <rect x="550" y="584" width="186" height="144" rx="4" fill="#3a2a1f" class="ol" stroke-width="2.5"/>
+          <rect x="556" y="590" width="174" height="14" fill="#2a1d15"/>
+          <line x1="554" y1="656" x2="732" y2="656" stroke="#6b4a33" stroke-width="5"/>
+        </g>
+        <g class="cab-door" style="transform-origin: 736px 656px">
+          <rect x="550" y="584" width="186" height="144" rx="4" fill="var(--olive-dark)" class="ol" stroke-width="2.5"/>
+          <circle cx="566" cy="656" r="5" fill="var(--mustard)" class="ol" stroke-width="2"/>
+        </g>
+      </g>
+      <g class="cabinet" id="cabinet-3" role="button" tabindex="0" aria-pressed="false" aria-label="Open cabinet 3">
+        <g class="cab-inside">
+          <rect x="746" y="584" width="186" height="144" rx="4" fill="#3a2a1f" class="ol" stroke-width="2.5"/>
+          <rect x="752" y="590" width="174" height="14" fill="#2a1d15"/>
+          <line x1="750" y1="656" x2="928" y2="656" stroke="#6b4a33" stroke-width="5"/>
+        </g>
+        <g class="cab-door" style="transform-origin: 746px 656px">
+          <rect x="746" y="584" width="186" height="144" rx="4" fill="var(--olive-dark)" class="ol" stroke-width="2.5"/>
+          <circle cx="916" cy="656" r="5" fill="var(--mustard)" class="ol" stroke-width="2"/>
+        </g>
+      </g>
+      <g class="cabinet" id="cabinet-4" role="button" tabindex="0" aria-pressed="false" aria-label="Open cabinet 4">
+        <g class="cab-inside">
+          <rect x="942" y="584" width="186" height="144" rx="4" fill="#3a2a1f" class="ol" stroke-width="2.5"/>
+          <rect x="948" y="590" width="174" height="14" fill="#2a1d15"/>
+          <line x1="946" y1="656" x2="1124" y2="656" stroke="#6b4a33" stroke-width="5"/>
+        </g>
+        <g class="cab-door" style="transform-origin: 1128px 656px">
+          <rect x="942" y="584" width="186" height="144" rx="4" fill="var(--olive-dark)" class="ol" stroke-width="2.5"/>
+          <circle cx="958" cy="656" r="5" fill="var(--mustard)" class="ol" stroke-width="2"/>
+        </g>
+      </g>
+
       <!-- tea towel -->
       <g class="ol" stroke-width="2.5">
         <path d="M628 556 H658 V632 H628 Z" fill="var(--paper)"/>
@@ -413,6 +460,7 @@
       <!-- blank for now: drop a drawing in here later, e.g. <img src="assets/footer.png" alt=""> -->
       <div class="footer-art" aria-hidden="true"></div>
       <nav class="footer-links" aria-label="Elsewhere">
+        <a class="email" href="mailto:michelle.zuo@duke.edu">michelle.zuo@duke.edu</a>
         <a href="assets/resume.pdf" target="_blank" rel="noopener">Resume ↗</a>
         <a href="https://github.com/michellezuo" target="_blank" rel="noopener">GitHub ↗</a>
         <a href="https://www.linkedin.com/in/michellezuo/" target="_blank" rel="noopener">LinkedIn ↗</a>
@@ -444,9 +492,23 @@
       sink.setAttribute('aria-pressed', on);
     };
     sink.addEventListener('click', toggle);
+
+    // cabinet doors swing open and shut
+    document.querySelectorAll('.cabinet').forEach((cab, i) => {
+      const flip = () => {
+        const open = cab.classList.toggle('open');
+        cab.setAttribute('aria-pressed', open);
+        cab.setAttribute('aria-label', `${open ? 'Close' : 'Open'} cabinet ${i + 1}`);
+      };
+      cab.addEventListener('click', flip);
+      cab.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); flip(); }
+      });
+    });
     sink.addEventListener('keydown', e => {
       if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
     });
   </script>
+  <script src="js/theme.js?v=16"></script>
 </body>
 </html>
