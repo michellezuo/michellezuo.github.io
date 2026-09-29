@@ -1,22 +1,31 @@
-// ─── baking board: add a new pin by adding a line here ─────────────────
-// src: photo in assets/baking/ (resize to ~900px wide before adding)
+// ─── boards: add a new pin by adding a line to the right list ──────────
+// src: photo in assets/ (resize to ~900px wide before adding)
 // w, h: the photo's pixel size, so the board doesn't jump around while loading
-const PINS = [
-  { src: 'assets/baking/thumbprints-window.jpg',     w: 900, h: 1200, title: 'Apricot thumbprints', note: 'half of them drizzled with dark chocolate' },
-  { src: 'assets/baking/berry-tart.jpg',             w: 900, h: 900,  title: 'Strawberry & blueberry tart', note: 'fresh berries over custard' },
-  { src: 'assets/baking/banana-bread.jpg',           w: 900, h: 675,  title: 'Banana bread', note: 'the classic' },
-  { src: 'assets/baking/thumbprints-flowers.jpg',    w: 900, h: 1200, title: 'Thumbprints, round two', note: 'with fall out the window' },
-  { src: 'assets/baking/banana-bread-choc-chip.jpg', w: 900, h: 910,  title: 'Chocolate chip banana bread', note: 'always make two' },
-];
+// each list fills the <div class="board" data-board="..."> with the same name in fun.html
+const BOARDS = {
+  baking: [
+    { src: 'assets/baking/thumbprints-window.jpg',     w: 900, h: 1200, title: 'Apricot thumbprints', note: 'half of them drizzled with dark chocolate' },
+    { src: 'assets/baking/berry-tart.jpg',             w: 900, h: 900,  title: 'Strawberry & blueberry tart', note: 'fresh berries over custard' },
+    { src: 'assets/baking/banana-bread.jpg',           w: 900, h: 675,  title: 'Banana bread', note: 'the classic' },
+    { src: 'assets/baking/dad-birthday-tart.jpg',      w: 900, h: 1200, title: 'Fruit tart for my dad’s birthday', note: 'strawberries, blackberries & peaches' },
+    { src: 'assets/baking/thumbprints-flowers.jpg',    w: 900, h: 1200, title: 'Thumbprints, round two', note: 'with fall out the window' },
+    { src: 'assets/baking/banana-bread-choc-chip.jpg', w: 900, h: 910,  title: 'Chocolate chip banana bread', note: 'always make two' },
+  ],
+  friends: [
+    { src: 'assets/friends/duke-football.jpg',     w: 900, h: 1200, title: 'Duke football game', note: 'first game in blue' },
+    { src: 'assets/friends/class-council-prom.jpg', w: 900, h: 600,  title: 'Class council at prom', note: 'the people who made it happen' },
+    { src: 'assets/friends/graduation.jpg',        w: 900, h: 1200, title: 'Graduation', note: 'TJ class of 2026' },
+    { src: 'assets/friends/prom.jpg',              w: 900, h: 600,  title: 'Prom', note: 'blue & red' },
+    { src: 'assets/friends/decision-day.jpg',      w: 900, h: 1200, title: 'Decision day', note: 'Duke-bound, in DC' },
+  ],
+};
 // ───────────────────────────────────────────────────────────────────────
 
-const board = document.getElementById('board');
 const viewer = document.getElementById('pin-view');
 const viewImg = viewer.querySelector('img');
 const viewCap = viewer.querySelector('figcaption');
-const pins = [];
 
-PINS.forEach(p => {
+function makePin(p) {
   const pin = document.createElement('button');
   pin.className = 'pin';
   pin.type = 'button';
@@ -44,11 +53,11 @@ PINS.forEach(p => {
     viewCap.textContent = `${p.title} — ${p.note}`;
     viewer.showModal();
   });
-  pins.push({ el: pin, ratio: p.h / p.w });
-});
+  return { el: pin, ratio: p.h / p.w };
+}
 
 // pinterest-style layout: drop each pin into whichever column is currently shortest
-function layout() {
+function layout(board, pins) {
   const count = board.clientWidth >= 820 ? 3 : 2;
   if (board.dataset.cols === String(count)) return;
   board.dataset.cols = count;
@@ -59,14 +68,24 @@ function layout() {
   });
   const heights = new Array(count).fill(0);
   pins.forEach(({ el, ratio }) => {
-    const i = heights.indexOf(Math.min(...heights));
+    // shortest column; on a tie, prefer the one nearest the middle so stragglers sit centered
+    const min = Math.min(...heights);
+    const mid = (count - 1) / 2;
+    const i = heights
+      .map((h, idx) => idx)
+      .filter(idx => heights[idx] - min < 0.01)
+      .sort((a, b) => Math.abs(a - mid) - Math.abs(b - mid))[0];
     cols[i].appendChild(el);
     heights[i] += ratio;
   });
   board.replaceChildren(...cols);
 }
-layout();
-window.addEventListener('resize', layout);
+
+document.querySelectorAll('.board[data-board]').forEach(board => {
+  const pins = (BOARDS[board.dataset.board] || []).map(makePin);
+  layout(board, pins);
+  window.addEventListener('resize', () => layout(board, pins));
+});
 
 viewer.querySelector('.recipe-close').addEventListener('click', () => viewer.close());
 viewer.addEventListener('click', e => { if (e.target === viewer) viewer.close(); });
