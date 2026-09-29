@@ -9,16 +9,16 @@ const PROJECTS = [
     img: 'assets/cookies/cookie-a.png',
     name: 'Find|A|Qure',
     title: 'Find|A|Qure',
-    meta: 'Mar 2026 · HackTJ 2026 · with Holly Huang',
+    meta: 'Mar 2026 · HackTJ 2026 · With Holly Huang',
     blurb: 'Ranks where an antibody is most likely to dock on an antigen, starting from just two FASTA sequences, using Grover’s quantum search.',
     tags: ['Python', 'NumPy', 'Flask', 'FastAPI', 'Grover’s algorithm', 'RCSB PDB API', 'HTML/CSS/JS'],
     sections: [
       {
-        heading: 'The problem',
+        heading: 'The Problem',
         text: 'Finding and testing antibodies costs an estimated $19.1 billion a year, and most of that is slow, expensive lab trial-and-error. After several people in our families caught COVID-19, we wanted to understand how antibodies are discovered in the first place — and whether the search could be made faster.',
       },
       {
-        heading: 'How it works',
+        heading: 'How It Works',
         steps: [
           'Paste antigen and antibody sequences in FASTA format.',
           'The Flask front end cleans the sequences and sends them to a FastAPI backend.',
@@ -28,7 +28,7 @@ const PROJECTS = [
         ],
       },
       {
-        heading: 'Why quantum',
+        heading: 'Why Quantum',
         text: 'Docking is a search over a huge space of configurations, which is exactly what Grover’s algorithm is built for: it finds a marked answer in about √N steps instead of N, a quadratic speedup over classical search. We simulated the algorithm (oracle + diffusion operator) in NumPy with a nested search: an outer Grover pass ranks candidate antibodies, and an inner pass ranks docking sites for the top candidates.',
       },
       {
@@ -41,17 +41,17 @@ const PROJECTS = [
   {
     img: 'assets/cookies/cookie-a.png',
     name: 'ADYN × DIIG',
-    title: 'Data & dashboarding for ADYN',
-    meta: 'Sep – Dec 2026 · Duke Impact Investment Group · 5-person team · in progress',
+    title: 'Data & Dashboarding for ADYN',
+    meta: 'Sep – Dec 2026 · Duke Impact Investment Group · 5-Person Team · In Progress',
     blurb: 'Turning a YC-backed women’s health startup’s data into answers its team can explore on their own: EDA, a metrics layer, a dashboard, and ML where it helps.',
     tags: ['Python', 'pandas', 'SQL', 'Plotly', 'EDA', 'Machine learning', 'Dashboards'],
     sections: [
       {
-        heading: 'The client',
+        heading: 'The Client',
         text: 'ADYN (YC 2025) personalizes birth control using hormone and genetic testing. As a data analyst in DIIG, I’m on a five-person team helping them get more out of the data they collect.',
       },
       {
-        heading: 'What we’re delivering',
+        heading: 'What We’re Delivering',
         steps: [
           'A prioritized set of research questions — the business and scientific questions most worth answering.',
           'A dashboard demo that answers them, and lets ADYN’s team build and save their own views.',
@@ -59,7 +59,7 @@ const PROJECTS = [
         ],
       },
       {
-        heading: 'How we’re doing it',
+        heading: 'How We’re Doing It',
         steps: [
           'Question discovery: pairing client conversations with exploratory data analysis, then narrowing a longlist of questions to a must-answer top five.',
           'Data profiling & EDA: checking completeness, consistency and coverage, and documenting every cleaning and missing-data decision.',
@@ -70,26 +70,26 @@ const PROJECTS = [
         ],
       },
       {
-        heading: 'Run like a real engagement',
+        heading: 'Run Like a Real Engagement',
         text: 'Phase gates, weekly standups, biweekly client check-ins, and one branch per work track. Data handling is strict: no credentials in code and no client data on personal machines. (That’s also why this page stays high-level.)',
       },
     ],
-    links: [{ label: 'ADYN’s science', href: 'https://adyn.com/science/' }],
+    links: [{ label: 'ADYN’s Science', href: 'https://adyn.com/science/' }],
   },
   {
     img: 'assets/cookies/cookie-a.png',
-    name: 'This website',
+    name: 'This Website',
     title: 'This kitchen',
-    meta: 'Sep 2026 · personal site',
+    meta: 'Sep 2026 · Personal Site',
     blurb: 'My portfolio as a cozy illustrated kitchen: an SVG scene drawn in code, plain HTML/CSS/JS, hosted on GitHub Pages.',
     tags: ['HTML', 'CSS', 'JavaScript', 'SVG', 'Python', 'GitHub Pages'],
     sections: [
       {
-        heading: 'The idea',
+        heading: 'The Idea',
         text: 'Baking is my favorite hobby, so the site is a kitchen: the oven holds my projects, the recipe book is about me, and the dessert counter is everything else.',
       },
       {
-        heading: 'How it’s built',
+        heading: 'How It’s Built',
         steps: [
           'The kitchen is a single SVG illustration drawn in code, with CSS animation for the oven glow, the autumn leaves outside the window, and the cat’s tail. (Try the sink tap.)',
           'No frameworks: plain HTML, CSS and JavaScript. Projects live in one small data file, and this tray renders itself from it.',
@@ -162,7 +162,7 @@ function open(slot) {
 function openRecipe(p) {
   const body = dialog.querySelector('.recipe-body');
   body.replaceChildren();
-  body.append(el('p', 'recipe-kicker', 'Recipe card'), el('h2', 'recipe-title', p.title), el('p', 'recipe-meta', p.meta));
+  body.append(el('p', 'recipe-kicker', 'Recipe Card'), el('h2', 'recipe-title', p.title), el('p', 'recipe-meta', p.meta));
   p.sections.forEach(s => {
     body.appendChild(el('h3', null, s.heading));
     if (s.text) body.appendChild(el('p', null, s.text));
@@ -200,7 +200,7 @@ PROJECTS.forEach((p, i) => {
 
   const card = el('div', 'card');
   card.setAttribute('aria-hidden', 'true');
-  card.append(el('h3', null, p.title), el('p', 'card-meta', p.meta), el('p', null, p.blurb), tagList(p.tags.slice(0, 4)), el('p', 'card-hint', 'click the cookie for the full recipe →'));
+  card.append(el('h3', null, p.title), el('p', 'card-meta', p.meta), el('p', null, p.blurb), tagList(p.tags.slice(0, 4)), el('p', 'card-hint', 'Click the Cookie for the Full Recipe →'));
 
   slot.append(btn, el('div', 'cookie-name', p.name), card);
   tray.appendChild(slot);

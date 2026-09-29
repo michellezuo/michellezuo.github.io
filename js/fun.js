@@ -4,19 +4,18 @@
 // each list fills the <div class="board" data-board="..."> with the same name in fun.html
 const BOARDS = {
   baking: [
-    { src: 'assets/baking/thumbprints-window.jpg',     w: 900, h: 1200, title: 'Apricot thumbprints', note: 'half of them drizzled with dark chocolate' },
-    { src: 'assets/baking/berry-tart.jpg',             w: 900, h: 900,  title: 'Strawberry & blueberry tart', note: 'fresh berries over custard' },
-    { src: 'assets/baking/banana-bread.jpg',           w: 900, h: 675,  title: 'Banana bread', note: 'the classic' },
-    { src: 'assets/baking/dad-birthday-tart.jpg',      w: 900, h: 1200, title: 'Fruit tart for my dad’s birthday', note: 'strawberries, blackberries & peaches' },
-    { src: 'assets/baking/thumbprints-flowers.jpg',    w: 900, h: 1200, title: 'Thumbprints, round two', note: 'with fall out the window' },
-    { src: 'assets/baking/banana-bread-choc-chip.jpg', w: 900, h: 910,  title: 'Chocolate chip banana bread', note: 'always make two' },
+    { src: 'assets/baking/thumbprints-window.jpg',     w: 900, h: 1200, title: 'Apricot Thumbprints', note: 'Half of them drizzled with dark chocolate' },
+    { src: 'assets/baking/berry-tart.jpg',             w: 900, h: 900,  title: 'Strawberry & Blueberry Tart', note: 'Fresh berries over custard' },
+    { src: 'assets/baking/banana-bread.jpg',           w: 900, h: 675,  title: 'Banana Bread', note: 'The classic' },
+    { src: 'assets/baking/dad-birthday-tart.jpg',      w: 900, h: 1200, title: 'Fruit Tart for My Dad’s Birthday', note: 'Strawberries, blackberries & peaches' },
+    { src: 'assets/baking/thumbprints-flowers.jpg',    w: 900, h: 1200, title: 'Thumbprints, Round Two', note: 'With fall out the window' },
+    { src: 'assets/baking/banana-bread-choc-chip.jpg', w: 900, h: 910,  title: 'Chocolate Chip Banana Bread', note: 'Always make two' },
   ],
   friends: [
-    { src: 'assets/friends/duke-football.jpg',     w: 900, h: 1200, title: 'Duke football game', note: 'first game in blue' },
-    { src: 'assets/friends/class-council-prom.jpg', w: 900, h: 600,  title: 'Class council at prom', note: 'the people who made it happen' },
+    { src: 'assets/friends/duke-football.jpg',     w: 900, h: 1200, title: 'Duke Football Game', note: 'First game in blue' },
+    { src: 'assets/friends/class-council-prom.jpg', w: 900, h: 600,  title: 'Class Council at Prom', note: 'The people who made it happen' },
     { src: 'assets/friends/graduation.jpg',        w: 900, h: 1200, title: 'Graduation', note: 'TJ class of 2026' },
-    { src: 'assets/friends/prom.jpg',              w: 900, h: 600,  title: 'Prom', note: 'blue & red' },
-    { src: 'assets/friends/decision-day.jpg',      w: 900, h: 1200, title: 'Decision day', note: 'Duke-bound, in DC' },
+    { src: 'assets/friends/decision-day.jpg',      w: 900, h: 1200, title: 'Decision Day', note: 'Duke-bound, in DC' },
   ],
 };
 // ───────────────────────────────────────────────────────────────────────
