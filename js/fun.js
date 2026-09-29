@@ -1,7 +1,7 @@
 // ─── boards: add a new pin by adding a line to the right list ──────────
 // src: photo in assets/ (resize to ~900px wide before adding)
 // w, h: the photo's pixel size, so the board doesn't jump around while loading
-// each list fills the <div class="board" data-board="..."> with the same name in fun.html
+// each list fills the <div class="board" data-board="..."> with the same name on the home page (index.html)
 const BOARDS = {
   baking: [
     { src: 'assets/baking/thumbprints-window.jpg',     w: 900, h: 1200, title: 'Apricot Thumbprints', note: 'Half of them drizzled with dark chocolate' },

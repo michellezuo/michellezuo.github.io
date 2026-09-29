@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
   <script>try{if(localStorage.getItem('theme')==='dark')document.documentElement.dataset.theme='dark'}catch(e){}</script>
-  <link rel="stylesheet" href="css/style.css?v=16">
+  <link rel="stylesheet" href="css/style.css?v=18">
 </head>
 <body class="kitchen-page">
 
@@ -33,10 +33,6 @@
           <stop offset=".55" stop-color="#e9772f"/>
           <stop offset="1" stop-color="#7a2a12"/>
         </radialGradient>
-        <!-- night mode: cool, moonlit dimming (used by css when the lights are off) -->
-        <filter id="moonlight" color-interpolation-filters="sRGB">
-          <feColorMatrix type="matrix" values="0.30 0.03 0.03 0 0.01  0.02 0.33 0.05 0 0.015  0.03 0.07 0.47 0 0.04  0 0 0 1 0"/>
-        </filter>
         <clipPath id="glass"><rect x="462" y="177" width="276" height="256"/></clipPath>
         <clipPath id="ovenWin"><rect x="112" y="556" width="176" height="132" rx="12"/></clipPath>
       </defs>
@@ -155,8 +151,8 @@
       <rect x="445" y="160" width="310" height="290" fill="var(--paper)" class="ol"/>
       <rect x="462" y="177" width="276" height="256" fill="url(#sky)"/>
       <g clip-path="url(#glass)">
-        <!-- low autumn sun -->
-        <circle class="sun" cx="520" cy="300" r="22" fill="#fff1cc" opacity=".9"/>
+        <!-- the moon (only shows when the lights are off) -->
+        <circle class="sun" cx="520" cy="300" r="22" fill="#f4f0e2"/>
         <!-- far hills -->
         <path d="M462 433 V352 Q520 322 590 346 Q650 318 738 340 V433 Z" fill="#c98a4b"/>
         <!-- autumn trees -->
@@ -227,6 +223,8 @@
           <rect x="354" y="584" width="186" height="144" rx="4" fill="#3a2a1f" class="ol" stroke-width="2.5"/>
           <rect x="360" y="590" width="174" height="14" fill="#2a1d15"/>
           <line x1="358" y1="656" x2="536" y2="656" stroke="#6b4a33" stroke-width="5"/>
+          <!-- inside -->
+          <path d="M376.0 694 H472.0 Q468.0 724 424 724 Q380.0 724 376.0 694 Z" fill="#8fa39a" class="ol" stroke-width="2.5"/><path d="M382.0 700 H466.0" stroke="#fffaf1" stroke-width="3" opacity=".6"/><path d="M394.0 684 H454.0 Q450.0 704 424 704 Q398.0 704 394.0 684 Z" fill="var(--terracotta)" class="ol" stroke-width="2.5"/><path d="M400.0 690 H448.0" stroke="#fffaf1" stroke-width="3" opacity=".6"/><path d="M445.0 635 H495.0 Q491.0 653 470 653 Q449.0 653 445.0 635 Z" fill="var(--mustard)" class="ol" stroke-width="2.5"/><path d="M451.0 641 H489.0" stroke="#fffaf1" stroke-width="3" opacity=".6"/>
         </g>
         <g class="cab-door" style="transform-origin: 354px 656px">
           <rect x="354" y="584" width="186" height="144" rx="4" fill="var(--olive-dark)" class="ol" stroke-width="2.5"/>
@@ -238,6 +236,8 @@
           <rect x="550" y="584" width="186" height="144" rx="4" fill="#3a2a1f" class="ol" stroke-width="2.5"/>
           <rect x="556" y="590" width="174" height="14" fill="#2a1d15"/>
           <line x1="554" y1="656" x2="732" y2="656" stroke="#6b4a33" stroke-width="5"/>
+          <!-- inside -->
+          <rect x="572" y="642" width="16" height="8" rx="4" fill="#b98050" class="ol" stroke-width="2"/><rect x="698" y="642" width="16" height="8" rx="4" fill="#b98050" class="ol" stroke-width="2"/><rect x="586" y="639" width="114" height="15" rx="7" fill="#e3b27a" class="ol" stroke-width="2.5"/><path d="M591.0 690 H695.0 Q691.0 724 643 724 Q595.0 724 591.0 690 Z" fill="#f3ead8" class="ol" stroke-width="2.5"/><path d="M597.0 696 H689.0" stroke="#fffaf1" stroke-width="3" opacity=".6"/>
         </g>
         <g class="cab-door" style="transform-origin: 736px 656px">
           <rect x="550" y="584" width="186" height="144" rx="4" fill="var(--olive-dark)" class="ol" stroke-width="2.5"/>
@@ -249,6 +249,8 @@
           <rect x="746" y="584" width="186" height="144" rx="4" fill="#3a2a1f" class="ol" stroke-width="2.5"/>
           <rect x="752" y="590" width="174" height="14" fill="#2a1d15"/>
           <line x1="750" y1="656" x2="928" y2="656" stroke="#6b4a33" stroke-width="5"/>
+          <!-- inside -->
+          <path d="M784.0 694 H894.0 Q890.0 724 839 724 Q788.0 724 784.0 694 Z" fill="var(--terracotta)" class="ol" stroke-width="2.5"/><path d="M790.0 700 H888.0" stroke="#fffaf1" stroke-width="3" opacity=".6"/><path d="M797.0 672 H881.0 Q877.0 696 839 696 Q801.0 696 797.0 672 Z" fill="#8fa39a" class="ol" stroke-width="2.5"/><path d="M803.0 678 H875.0" stroke="#fffaf1" stroke-width="3" opacity=".6"/><path d="M810.0 654 H868.0 Q864.0 672 839 672 Q814.0 672 810.0 654 Z" fill="#f3ead8" class="ol" stroke-width="2.5"/><path d="M816.0 660 H862.0" stroke="#fffaf1" stroke-width="3" opacity=".6"/><path d="M778.0 637 H822.0 Q818.0 653 800 653 Q782.0 653 778.0 637 Z" fill="var(--mustard)" class="ol" stroke-width="2.5"/><path d="M784.0 643 H816.0" stroke="#fffaf1" stroke-width="3" opacity=".6"/>
         </g>
         <g class="cab-door" style="transform-origin: 746px 656px">
           <rect x="746" y="584" width="186" height="144" rx="4" fill="var(--olive-dark)" class="ol" stroke-width="2.5"/>
@@ -260,6 +262,8 @@
           <rect x="942" y="584" width="186" height="144" rx="4" fill="#3a2a1f" class="ol" stroke-width="2.5"/>
           <rect x="948" y="590" width="174" height="14" fill="#2a1d15"/>
           <line x1="946" y1="656" x2="1124" y2="656" stroke="#6b4a33" stroke-width="5"/>
+          <!-- inside -->
+          <path d="M1000.0 631 H1070.0 Q1066.0 653 1035 653 Q1004.0 653 1000.0 631 Z" fill="#8fa39a" class="ol" stroke-width="2.5"/><path d="M1006.0 637 H1064.0" stroke="#fffaf1" stroke-width="3" opacity=".6"/><rect x="962" y="712" width="16" height="8" rx="4" fill="#b98050" class="ol" stroke-width="2"/><rect x="1070" y="712" width="16" height="8" rx="4" fill="#b98050" class="ol" stroke-width="2"/><rect x="976" y="709" width="96" height="15" rx="7" fill="#e3b27a" class="ol" stroke-width="2.5"/>
         </g>
         <g class="cab-door" style="transform-origin: 1128px 656px">
           <rect x="942" y="584" width="186" height="144" rx="4" fill="var(--olive-dark)" class="ol" stroke-width="2.5"/>
@@ -342,7 +346,7 @@
       </g>
 
       <!-- ============ RECIPE BOOK → about ============ -->
-      <a id="book" class="hotspot" href="about.html" aria-label="Recipe for Michelle: about me">
+      <a id="book" class="hotspot" href="#about" aria-label="Recipe for Michelle: about me">
         <g class="lift">
           <g class="ol" stroke-width="2.5">
             <path d="M380 500 L420 444 L460 500" fill="none" stroke="var(--wood)" stroke-width="6"/>
@@ -363,7 +367,7 @@
       </a>
 
       <!-- ============ MESSY DESSERT COUNTER → fun ============ -->
-      <a id="desserts" class="hotspot" href="fun.html" aria-label="Today's bakes: fun stuff">
+      <a id="desserts" class="hotspot" href="#fun" aria-label="Today's bakes: fun stuff">
         <!-- chalkboard hanging under the shelf -->
         <g class="ol" stroke-width="2">
           <path d="M1066 348 L1016 366 M1066 348 L1116 366" fill="none" stroke-width="1.5"/>
@@ -450,17 +454,109 @@
 
     <ul class="menu-list">
       <li><a href="projects.html">Projects</a></li>
-      <li><a href="about.html">About Me</a></li>
-      <li><a href="fun.html">Fun Stuff</a></li>
+      <li><a href="#about">About Me</a></li>
+      <li><a href="#fun">Fun Stuff</a></li>
     </ul>
   </main>
 
+  <div class="below-kitchen">
+    <section id="about" class="plain" aria-labelledby="about-h">
+      <div class="about-top">
+        <img class="photo" src="assets/me.jpg" alt="Michelle Zuo standing under the stone arches at Duke" width="800" height="1000">
+        <div>
+          <h2 id="about-h" class="big">About Me</h2>
+          <p class="kicker">Michelle Zuo · Math + CS @ Duke</p>
+        </div>
+      </div>
+
+      <h2>Education</h2>
+      <ul class="entries">
+        <li>
+          <span class="what">Duke University</span>
+          <span class="when">Class of 2030</span>
+          <span class="detail">B.S. Mathematics &amp; Computer Science</span>
+        </li>
+        <li>
+          <span class="what">Thomas Jefferson High School for Science and Technology</span>
+          <span class="when">Class of 2026</span>
+        </li>
+      </ul>
+
+      <h2>Currently</h2>
+      <ul class="entries">
+        <li>
+          <span class="what">Data Analyst, Duke Impact Investment Group (DIIG)</span>
+          <span class="when">Sep 2026 – Present</span>
+          <span class="detail">On a 5-person team analyzing data for ADYN (YC25) and building them a customizable dashboard.</span>
+        </li>
+        <li>
+          <span class="what">Operations Team, HackDuke</span>
+          <span class="when">Sep 2026 – Present</span>
+          <span class="detail">Raising sponsorship and running logistics for Duke’s premier hackathon.</span>
+        </li>
+        <li>
+          <span class="what">Math Tutor, ARAC / L2S</span>
+          <span class="when">Work study</span>
+          <span class="detail">Tutoring math at local middle and high schools.</span>
+        </li>
+      </ul>
+
+      <h2>Research</h2>
+      <ul class="entries">
+        <li>
+          <span class="what">Research Intern, George Mason University (ASSIP)</span>
+          <span class="when">Jun 2025 – Mar 2026</span>
+          <span class="detail">NSF-funded DISES project: economic loss vs. social vulnerability across NOAA’s costliest hazards. Paper under review.</span>
+        </li>
+        <li>
+          <span class="what">Research Student, Institute for Mathematics and Democracy</span>
+          <span class="when">Jun 2025 – Mar 2026</span>
+          <span class="detail">Swing-state analysis of Wisconsin elections. <a href="https://arxiv.org/abs/2510.26867" target="_blank" rel="noopener">Preprint on arXiv</a>.</span>
+        </li>
+        <li>
+          <span class="what">Quantum Research Student, Virginia Tech Quantum Lab Partnership</span>
+          <span class="when">Sep 2025 – Jun 2026</span>
+          <span class="detail">Improving ADAPT-VQE, a quantum algorithm for molecular simulation.</span>
+        </li>
+      </ul>
+    </section>
+
+    <section id="fun" class="plain wide" aria-labelledby="fun-h">
+      <h2 id="fun-h" class="big">Fun Stuff</h2>
+      <p class="kicker">Cheesecakes, Fruit Tarts, and Everything Else</p>
+
+      <div class="board-group">
+        <h2 id="baking-h">Baking</h2>
+        <p class="board-note">Things that have come out of my oven lately. Click any photo to see it bigger.</p>
+        <div class="board" data-board="baking"></div>
+      </div>
+
+      <div class="board-group">
+        <h2 id="friends-h">Friends</h2>
+        <p class="board-note">The people who make everything more fun.</p>
+        <div class="board" data-board="friends"></div>
+      </div>
+    </section>
+  </div>
+
+  <dialog id="pin-view" class="pin-view" aria-label="Photo">
+    <button class="recipe-close" type="button" aria-label="Close">×</button>
+    <figure>
+      <img alt="">
+      <figcaption></figcaption>
+    </figure>
+  </dialog>
+
   <footer class="site-footer">
     <div class="footer-inner">
-      <!-- blank for now: drop a drawing in here later, e.g. <img src="assets/footer.png" alt=""> -->
-      <div class="footer-art" aria-hidden="true"></div>
+      <div class="footer-art">
+        <!-- room for a drawing later -->
+        <div class="footer-contact">
+          <span class="contact-label">Contact Me</span>
+          <a class="email" href="mailto:michelle.zuo@duke.edu">michelle.zuo@duke.edu</a>
+        </div>
+      </div>
       <nav class="footer-links" aria-label="Elsewhere">
-        <a class="email" href="mailto:michelle.zuo@duke.edu">michelle.zuo@duke.edu</a>
         <a href="assets/resume.pdf" target="_blank" rel="noopener">Resume ↗</a>
         <a href="https://github.com/michellezuo" target="_blank" rel="noopener">GitHub ↗</a>
         <a href="https://www.linkedin.com/in/michellezuo/" target="_blank" rel="noopener">LinkedIn ↗</a>
@@ -509,6 +605,7 @@
       if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
     });
   </script>
-  <script src="js/theme.js?v=16"></script>
+  <script src="js/fun.js?v=18"></script>
+  <script src="js/theme.js?v=18"></script>
 </body>
 </html>

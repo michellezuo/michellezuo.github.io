@@ -286,11 +286,16 @@ body.kitchen-page { background: var(--cream); }
 }
 
 /* ---------- projects / baking tray ---------- */
-body.tray-page {
-  background: radial-gradient(ellipse at 50% 30%, #7a3f1f 0%, #4a2616 55%, #2c170d 100%) fixed;
-  color: var(--cream);
+body.tray-page { background: #fff; }
+/* warm oven glow behind the tray */
+.tray-stage::before {
+  content: "";
+  position: absolute;
+  inset: -80px -120px;
+  z-index: -1;
+  background: radial-gradient(ellipse at 50% 50%, rgba(233, 119, 47, .22), rgba(233, 119, 47, .08) 45%, transparent 70%);
+  pointer-events: none;
 }
-.tray-page .back { color: var(--mustard); }
 .tray-head { text-align: center; padding: 8px 16px 0; }
 .tray-head h1 {
   margin: 0;
@@ -298,14 +303,14 @@ body.tray-page {
   font-style: italic;
   font-weight: 600;
   font-size: clamp(38px, 6vw, 60px);
-  color: var(--cream);
+  color: var(--line);
 }
 .tray-head p {
   margin: 4px 0 0;
   font-family: var(--f-serif);
   font-style: italic;
   font-size: clamp(18px, 2.2vw, 22px);
-  color: var(--mustard);
+  color: var(--terracotta);
 }
 .tray-stage {
   position: relative;
@@ -496,20 +501,13 @@ body.tray-page {
   pointer-events: none;
 }
 .tray-steam path {
-  fill: none; stroke: rgba(255,255,255,.55); stroke-width: 5; stroke-linecap: round;
+  fill: none; stroke: rgba(180, 83, 58, .28); stroke-width: 5; stroke-linecap: round;
   animation: steam 3s ease-in-out infinite;
 }
 .tray-steam path:nth-child(2) { animation-delay: .8s; }
 .tray-steam path:nth-child(3) { animation-delay: 1.6s; }
 .tray-steam path:nth-child(4) { animation-delay: 2.2s; }
 
-.tray-page .site-footer {
-  background: rgba(30, 15, 8, .35);
-  border-top-color: rgba(246, 236, 217, .2);
-  color: rgba(246, 236, 217, .6);
-}
-.tray-page .footer-links a:hover,
-.tray-page .footer-links a:focus-visible { color: var(--cream); }
 
 /* ---------- fun page: pinterest-style baking board ---------- */
 .plain.wide { max-width: 1100px; }
@@ -675,16 +673,17 @@ body, .site-footer { transition: background-color .4s ease, color .4s ease; }
 :root[data-theme="dark"] .back { color: #e39b76; }
 
 /* kitchen */
-:root[data-theme="dark"] body.kitchen-page { background: #0e1019; }
+:root[data-theme="dark"] body.kitchen-page { background: #100c0a; }
 :root[data-theme="dark"] .hello h1 { color: #f3e6cf; }
 :root[data-theme="dark"] .hello p { color: #e39b76; }
 :root[data-theme="dark"] .hello .hint { color: rgba(239, 227, 207, .45); }
 .kitchen { transition: filter .5s ease; }
-:root[data-theme="dark"] .kitchen { filter: url(#moonlight); }
+:root[data-theme="dark"] .kitchen { filter: brightness(.74) saturate(.92); }
 #sky stop { transition: stop-color .5s ease; }
 :root[data-theme="dark"] #sky stop:first-child { stop-color: #1b2340; }
 :root[data-theme="dark"] #sky stop:last-child  { stop-color: #4a4a6a; }
-:root[data-theme="dark"] .sun { fill: #f4f0e2; }
+.sun { opacity: 0; transition: opacity .5s ease; }
+:root[data-theme="dark"] .sun { opacity: .95; }
 :root[data-theme="dark"] .oven-glow { opacity: .6; }  /* the oven is the nightlight */
 :root[data-theme="dark"] .menu-list a { color: #e39b76; }
 
@@ -700,7 +699,10 @@ body, .site-footer { transition: background-color .4s ease, color .4s ease; }
 :root[data-theme="dark"] .pin-view figcaption { color: #efe3cf; }
 
 /* projects */
-:root[data-theme="dark"] body.tray-page { background: radial-gradient(ellipse at 50% 30%, #3d2012 0%, #1e0f08 55%, #0c0604 100%) fixed; }
+:root[data-theme="dark"] body.tray-page { background: #15100c; }
+:root[data-theme="dark"] .tray-head h1 { color: #f3e6cf; }
+:root[data-theme="dark"] .tray-head p { color: #e39b76; }
+:root[data-theme="dark"] .tray-stage::before { background: radial-gradient(ellipse at 50% 50%, rgba(233, 119, 47, .28), rgba(233, 119, 47, .1) 45%, transparent 70%); }
 :root[data-theme="dark"] .tray { filter: brightness(.82); }
 :root[data-theme="dark"] .card,
 :root[data-theme="dark"] .recipe { background: #211812; color: #efe3cf; border-color: #5a4535; }
@@ -720,10 +722,37 @@ body, .site-footer { transition: background-color .4s ease, color .4s ease; }
 :root[data-theme="dark"] .footer-links a:hover,
 :root[data-theme="dark"] .footer-links a:focus-visible { color: #fff; }
 
-/* ---------- hand-mixer cursor (mouse users only) ---------- */
-@media (hover: hover) and (pointer: fine) {
-  html { cursor: url("../assets/cursor/mixer.png") 5 25, auto; }
-  a, button, [role="button"], .hotspot, .cookie, .pin, .recipe-close, .light-switch, .cabinet {
-    cursor: url("../assets/cursor/mixer-on.png") 5 25, pointer;
-  }
+/* ---------- home page: About + Fun under the kitchen ---------- */
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+.below-kitchen { background: #fff; padding-top: 24px; }
+.below-kitchen > section { scroll-margin-top: 16px; }
+.below-kitchen > section + section { padding-top: 56px; }
+.plain h2.big {
+  margin: 12px 0 4px;
+  padding: 0;
+  border: 0;
+  font-size: clamp(40px, 7vw, 60px);
 }
+.board-group { margin-bottom: 8px; }
+:root[data-theme="dark"] .below-kitchen { background: #15100c; }
+
+/* ---------- footer: contact on the left ---------- */
+.footer-art { display: flex; align-items: flex-end; }
+.footer-contact { display: flex; flex-direction: column; gap: 6px; }
+.contact-label {
+  font-family: var(--f-body);
+  font-size: 12px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+.footer-contact .email {
+  font-family: var(--f-serif);
+  font-style: italic;
+  font-size: 20px;
+  color: var(--ink);
+  text-decoration: none;
+}
+.footer-contact .email:hover, .footer-contact .email:focus-visible { text-decoration: underline; text-underline-offset: 4px; }
+:root[data-theme="dark"] .footer-contact .email { color: #f3e6cf; }
+.tray-stage { isolation: isolate; }
