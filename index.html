@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
   <script>try{if(localStorage.getItem('theme')==='dark')document.documentElement.dataset.theme='dark'}catch(e){}</script>
-  <link rel="stylesheet" href="css/style.css?v=18">
+  <link rel="stylesheet" href="css/style.css?v=19">
 </head>
 <body class="kitchen-page">
 
@@ -80,7 +80,7 @@
       </g>
 
       <!-- ============ OVEN → projects ============ -->
-      <a id="oven" class="hotspot" href="projects.html" aria-label="Open the oven: projects">
+      <a id="oven" class="hotspot" href="#projects" aria-label="Open the oven: projects">
         <g class="lift">
           <!-- back guard + clock -->
           <rect x="70" y="456" width="260" height="32" rx="4" fill="#efe4cf" class="ol"/>
@@ -453,13 +453,44 @@
     </svg>
 
     <ul class="menu-list">
-      <li><a href="projects.html">Projects</a></li>
+      <li><a href="#projects">Projects</a></li>
       <li><a href="#about">About Me</a></li>
       <li><a href="#fun">Fun Stuff</a></li>
     </ul>
   </main>
 
   <div class="below-kitchen">
+    <section id="projects" class="projects-sec" aria-labelledby="projects-h">
+      <header class="tray-head">
+        <h2 id="projects-h" class="tray-title">Fresh Out of the Oven</h2>
+        <p>Hover Over a Cookie for a Taste, Click It for the Full Recipe</p>
+      </header>
+
+      <div class="tray-stage">
+        <svg class="tray-steam" viewBox="0 0 880 80" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M180 78 q-14 -18 0 -36 q14 -18 0 -36"/>
+            <path d="M360 78 q-14 -18 0 -36 q14 -18 0 -36"/>
+            <path d="M540 78 q-14 -18 0 -36 q14 -18 0 -36"/>
+            <path d="M720 78 q-14 -18 0 -36 q14 -18 0 -36"/>
+        </svg>
+        <!-- oven mitt that slides the tray out of the oven, then lets go -->
+        <svg class="mitt" viewBox="0 0 170 120" aria-hidden="true">
+            <defs><clipPath id="mitt-hand"><path d="M40 30 Q40 16 60 16 H122 Q156 16 156 56 Q156 96 122 96 H60 Q40 96 40 82 Z"/></clipPath></defs>
+            <path d="M86 20 Q84 -2 108 2 Q130 6 124 24 Z" fill="#b4533a" stroke="#4b2a1c" stroke-width="3" stroke-linejoin="round"/>
+            <path d="M40 30 Q40 16 60 16 H122 Q156 16 156 56 Q156 96 122 96 H60 Q40 96 40 82 Z" fill="#b4533a" stroke="#4b2a1c" stroke-width="3"/>
+            <g clip-path="url(#mitt-hand)" stroke="#f6ecd9" stroke-width="2" opacity=".35">
+            <path d="M40 40 L100 100 M60 16 L140 96 M90 16 L156 82 M120 16 L156 52 M40 70 L66 96"/>
+            <path d="M40 96 L120 16 M60 96 L140 16 M90 96 L156 30 M40 66 L90 16 M120 96 L156 60"/>
+            </g>
+            <rect x="6" y="22" width="40" height="68" rx="8" fill="#f6ecd9" stroke="#4b2a1c" stroke-width="3"/>
+            <path d="M16 22 V90 M26 22 V90 M36 22 V90" stroke="#dba54a" stroke-width="3"/>
+        </svg>
+        <div class="tray">
+            <div class="cookies" id="cookies"></div>
+        </div>
+      </div>
+    </section>
+
     <section id="about" class="plain" aria-labelledby="about-h">
       <div class="about-top">
         <img class="photo" src="assets/me.jpg" alt="Michelle Zuo standing under the stone arches at Duke" width="800" height="1000">
@@ -539,6 +570,11 @@
     </section>
   </div>
 
+  <dialog id="recipe" class="recipe" aria-label="Project details">
+    <button class="recipe-close" type="button" aria-label="Close">×</button>
+    <div class="recipe-body"></div>
+  </dialog>
+
   <dialog id="pin-view" class="pin-view" aria-label="Photo">
     <button class="recipe-close" type="button" aria-label="Close">×</button>
     <figure>
@@ -605,7 +641,8 @@
       if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
     });
   </script>
-  <script src="js/fun.js?v=18"></script>
-  <script src="js/theme.js?v=18"></script>
+  <script src="js/projects.js?v=19"></script>
+  <script src="js/fun.js?v=19"></script>
+  <script src="js/theme.js?v=19"></script>
 </body>
 </html>

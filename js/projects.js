@@ -137,25 +137,37 @@ function linkList(links) {
 }
 
 // ── hover card ──
-function close(slot) {
+function closeCard(slot) {
   slot.classList.remove('open');
   slot.querySelector('.cookie').classList.remove('open');
 }
 
-function open(slot) {
-  slots.forEach(s => s !== slot && close(s));
+function openCard(slot) {
+  slots.forEach(s => s !== slot && closeCard(s));
+  const card = slot.querySelector('.card');
+
+  // pop the card out beside the cookie, on whichever side has room,
+  // so it never slides under whatever comes after the tray
+  const r = slot.getBoundingClientRect();
+  const need = card.offsetWidth + 24;
+  const right = window.innerWidth - r.right;
+  const left = r.left;
+  card.classList.remove('side-left', 'side-right');
+  card.style.setProperty('--nudge', '0px');
+  if (Math.max(left, right) >= need) {
+    card.classList.add(right >= left ? 'side-right' : 'side-left');
+  } else {
+    // no room beside it (narrow screen): fall back to below, kept on screen
+    const c = card.getBoundingClientRect();
+    const pad = 16;
+    let nudge = 0;
+    if (c.left < pad) nudge = pad - c.left;
+    else if (c.right > window.innerWidth - pad) nudge = window.innerWidth - pad - c.right;
+    card.style.setProperty('--nudge', nudge + 'px');
+  }
+
   slot.classList.add('open');
   slot.querySelector('.cookie').classList.add('open');
-
-  // nudge the card sideways so it never runs off screen
-  const card = slot.querySelector('.card');
-  card.style.setProperty('--nudge', '0px');
-  const r = card.getBoundingClientRect();
-  const pad = 16;
-  let nudge = 0;
-  if (r.left < pad) nudge = pad - r.left;
-  else if (r.right > window.innerWidth - pad) nudge = window.innerWidth - pad - r.right;
-  card.style.setProperty('--nudge', nudge + 'px');
 }
 
 // ── full recipe card ──
@@ -176,7 +188,7 @@ function openRecipe(p) {
   body.appendChild(tagList(p.tags));
   if (p.links.length) body.appendChild(linkList(p.links));
 
-  slots.forEach(close);
+  slots.forEach(closeCard);
   dialog.showModal();
   dialog.scrollTop = 0;
 }
@@ -207,13 +219,25 @@ PROJECTS.forEach((p, i) => {
   slots.push(slot);
 
   // hover or keyboard focus shows the card; click/tap/Enter opens the full recipe
-  slot.addEventListener('mouseenter', () => open(slot));
-  slot.addEventListener('mouseleave', () => close(slot));
-  btn.addEventListener('focus', () => open(slot));
-  btn.addEventListener('blur', () => close(slot));
+  slot.addEventListener('mouseenter', () => openCard(slot));
+  slot.addEventListener('mouseleave', () => closeCard(slot));
+  btn.addEventListener('focus', () => openCard(slot));
+  btn.addEventListener('blur', () => closeCard(slot));
   btn.addEventListener('click', () => openRecipe(p));
 });
 
 document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') slots.forEach(close);
+  if (e.key === 'Escape') slots.forEach(closeCard);
 });
+
+// the oven mitt slides the tray in when the projects section scrolls into view
+const stage = document.querySelector('.tray-stage');
+if (stage && 'IntersectionObserver' in window) {
+  stage.classList.add('pending');
+  const serve = new IntersectionObserver(entries => {
+    if (!entries.some(e => e.isIntersecting)) return;
+    stage.classList.replace('pending', 'serve');
+    serve.disconnect();
+  }, { threshold: 0.35 });
+  serve.observe(stage);
+}
