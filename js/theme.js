@@ -22,5 +22,12 @@
   });
 
   render();
-  document.body.appendChild(btn);
+  // lives in the top-right corner group (shared with the baking meter on the home page)
+  let corner = document.querySelector('.corner');
+  if (!corner) {
+    corner = document.createElement('div');
+    corner.className = 'corner';
+    document.body.appendChild(corner);
+  }
+  corner.appendChild(btn);
 })();
