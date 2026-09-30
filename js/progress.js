@@ -1,5 +1,3 @@
-// "how baked is this page": a line along the top that browns as you scroll (with a rolling pin
-// riding its tip) and a little cookie in the top-right corner that bakes from dough to golden.
 (function () {
   const corner = document.querySelector('.corner') || (() => {
     const c = document.createElement('div');
