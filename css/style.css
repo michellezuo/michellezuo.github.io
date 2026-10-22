@@ -769,7 +769,8 @@ body, .site-footer { transition: background-color .4s ease, color .4s ease; }
 /* ---------- home page: About + Fun under the kitchen ---------- */
 html { scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
-.below-kitchen { background: #fff; padding-top: 24px; }
+/* the oven glow reaches past the tray; clip it at the page edge so phones don't get a sideways scroll */
+.below-kitchen { background: #fff; padding-top: 24px; overflow-x: clip; }
 .below-kitchen > section { scroll-margin-top: 16px; }
 .below-kitchen > section + section { padding-top: 56px; }
 .plain h2.big {
