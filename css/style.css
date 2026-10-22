@@ -683,6 +683,8 @@ body, .site-footer { transition: background-color .4s ease, color .4s ease; }
 #sky stop { transition: stop-color .5s ease; }
 :root[data-theme="dark"] #sky stop:first-child { stop-color: #1b2340; }
 :root[data-theme="dark"] #sky stop:last-child  { stop-color: #4a4a6a; }
+.night-glass { opacity: 0; transition: opacity .5s ease; }
+:root[data-theme="dark"] .night-glass { opacity: .6; }
 .sun { opacity: 0; transition: opacity .5s ease; }
 :root[data-theme="dark"] .sun { opacity: .95; }
 :root[data-theme="dark"] .oven-glow { opacity: .6; }  /* the oven is the nightlight */
