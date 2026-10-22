@@ -17,6 +17,16 @@ const BOARDS = {
     { src: 'assets/friends/graduation.jpg',        w: 900, h: 1200, title: 'Graduation', note: 'TJ class of 2026' },
     { src: 'assets/friends/decision-day.jpg',      w: 900, h: 1200, title: 'Decision Day', note: 'Duke-bound, in DC' },
   ],
+  travel: [
+    { src: 'assets/travel/great-wall.jpg',           w: 900, h: 1200, title: 'The Great Wall', note: 'Beijing, China' },
+    { src: 'assets/travel/shanghai-bund.jpg',        w: 900, h: 675,  title: 'The Bund at Night', note: 'Shanghai, China' },
+    { src: 'assets/travel/santa-monica-route66.jpg', w: 900, h: 1200, title: 'End of Route 66', note: 'Santa Monica Pier, CA' },
+    { src: 'assets/travel/victoria-peak.jpg',        w: 900, h: 1200, title: 'Victoria Peak', note: 'Hong Kong' },
+    { src: 'assets/travel/jingshan-pavilion.jpg',    w: 900, h: 1200, title: 'Jingshan Park', note: 'Beijing, China' },
+    { src: 'assets/travel/palace-of-fine-arts.jpg',  w: 900, h: 1200, title: 'Palace of Fine Arts', note: 'San Francisco, CA' },
+    { src: 'assets/travel/jefferson-memorial.jpg',   w: 900, h: 1200, title: 'Jefferson Memorial', note: 'Washington, DC' },
+    { src: 'assets/travel/long-beach-sunset.jpg',    w: 900, h: 1200, title: 'Sunset on the Beach', note: 'Long Beach, CA' },
+  ],
 };
 // ───────────────────────────────────────────────────────────────────────
 

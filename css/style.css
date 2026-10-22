@@ -181,8 +181,19 @@ body.kitchen-page { background: var(--cream); }
 @keyframes pour { to { stroke-dashoffset: -24; } }
 
 /* cat tail wiggle */
-.tail { transform-box: fill-box; transform-origin: 0% 0%; animation: wag 3s ease-in-out infinite; }
-@keyframes wag { 0%,100% { transform: rotate(0); } 50% { transform: rotate(8deg); } }
+.tail { transform-box: view-box; transform-origin: 730.7px 443.2px; animation: wag 4.5s ease-in-out infinite; }
+/* a slow sway, then a quick little shake */
+@keyframes wag {
+  0%, 100% { transform: rotate(0); }
+  20%  { transform: rotate(-9deg); }
+  40%  { transform: rotate(5deg); }
+  55%  { transform: rotate(0); }
+  60%  { transform: rotate(-6deg); }
+  64%  { transform: rotate(5deg); }
+  68%  { transform: rotate(-6deg); }
+  72%  { transform: rotate(5deg); }
+  78%  { transform: rotate(0); }
+}
 
 /* text menu for small screens / screen readers */
 .menu-list {
@@ -273,6 +284,31 @@ body.kitchen-page { background: var(--cream); }
 .entries .detail a,
 .detail-note a { color: var(--terracotta); }
 .detail-note { margin-top: 18px; font-family: var(--f-serif); font-style: italic; font-size: 19px; }
+/* recruiter-friendly bits on the about page */
+.quick-facts { margin: -20px 0 16px; font-size: 14px; color: #8a7d6b; }
+.about-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.btn {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1.5px solid var(--terracotta);
+  background: var(--terracotta);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+}
+.btn.ghost { background: none; color: var(--terracotta); }
+.btn:hover, .btn:focus-visible { filter: brightness(1.08); }
+.skills {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 10px 16px;
+  margin: 0;
+  align-items: baseline;
+}
+.skills dt { font-weight: 600; font-size: 14px; }
+.skills dd { margin: 0; }
 .tbd {
   font-family: var(--f-serif);
   font-style: italic;
@@ -283,6 +319,8 @@ body.kitchen-page { background: var(--cream); }
   .about-top { grid-template-columns: 1fr; }
   .photo-slot, .photo { max-width: 220px; }
   .entries li { grid-template-columns: 1fr; }
+  .skills { grid-template-columns: 1fr; gap: 4px; }
+  .skills dd { margin-bottom: 8px; }
 }
 
 /* ---------- projects / baking tray ---------- */
@@ -716,6 +754,8 @@ body, .site-footer { transition: background-color .4s ease, color .4s ease; }
 :root[data-theme="dark"] .card .card-meta,
 :root[data-theme="dark"] .recipe-meta { color: #a8987f; }
 :root[data-theme="dark"] .chips span { background: #3a2d24; border-color: #5a4535; color: #efe3cf; }
+:root[data-theme="dark"] .quick-facts { color: #a8987f; }
+:root[data-theme="dark"] .btn.ghost { color: #e39b76; border-color: #e39b76; }
 :root[data-theme="dark"] .links a,
 :root[data-theme="dark"] .card .card-hint,
 :root[data-theme="dark"] .recipe-kicker { color: #e39b76; }

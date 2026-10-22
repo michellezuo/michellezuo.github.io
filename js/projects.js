@@ -10,78 +10,112 @@ const PROJECTS = [
     name: 'Find|A|Qure',
     title: 'Find|A|Qure',
     meta: 'Mar 2026 · HackTJ 2026 · With Holly Huang',
-    blurb: 'Ranks where an antibody is most likely to dock on an antigen, starting from just two FASTA sequences, using Grover’s quantum search.',
-    tags: ['Python', 'NumPy', 'Flask', 'FastAPI', 'Grover’s algorithm', 'RCSB PDB API', 'HTML/CSS/JS'],
+    blurb: 'Ranks where an antibody is most likely to dock on an antigen, from just two FASTA sequences, using Grover’s quantum search.',
+    tags: ['Python', 'Flask', 'FastAPI', 'NumPy', 'Grover’s algorithm', 'RCSB PDB API'],
     sections: [
       {
         heading: 'The Problem',
-        text: 'Finding and testing antibodies costs an estimated $19.1 billion a year, and most of that is slow, expensive lab trial-and-error. After several people in our families caught COVID-19, we wanted to understand how antibodies are discovered in the first place — and whether the search could be made faster.',
+        text: 'Antibody discovery is slow, expensive lab trial and error. We wanted to speed up the search.',
       },
       {
-        heading: 'How It Works',
+        heading: 'What I Built',
         steps: [
-          'Paste antigen and antibody sequences in FASTA format.',
-          'The Flask front end cleans the sequences and sends them to a FastAPI backend.',
-          'The backend searches the RCSB Protein Data Bank by sequence to find the best-matching 3D structure.',
-          'Structural features are extracted and every candidate docking site is scored.',
-          'Grover’s algorithm amplifies the strongest sites, and the app returns a ranked list of likely binding sites.',
+          'Full-stack app: paste two FASTA sequences, get a ranked list of docking sites.',
+          'Matches each sequence to a 3D structure in the Protein Data Bank.',
+          'Grover’s search ranks the sites: about √N steps instead of N.',
+          'Validated end to end on a real HIV-1 antigen/antibody pair.',
         ],
-      },
-      {
-        heading: 'Why Quantum',
-        text: 'Docking is a search over a huge space of configurations, which is exactly what Grover’s algorithm is built for: it finds a marked answer in about √N steps instead of N, a quadratic speedup over classical search. We simulated the algorithm (oracle + diffusion operator) in NumPy with a nested search: an outer Grover pass ranks candidate antibodies, and an inner pass ranks docking sites for the top candidates.',
-      },
-      {
-        heading: 'Result',
-        text: 'We validated the full pipeline end to end on a real HIV-1 antigen/antibody pair from the Protein Data Bank (PDB 1A43 and 1IL1).',
       },
     ],
     links: [{ label: 'Code on GitHub', href: 'https://github.com/michellezuo/FindAQure' }],
   },
   {
     img: 'assets/cookies/cookie-a.png',
+    name: 'Purchase Predictor',
+    title: 'Online Shoppers Purchase Prediction',
+    meta: 'Oct 2026 · Duke · 4-Person Team',
+    blurb: 'A Random Forest that predicts which online shopping sessions end in a purchase: 0.92 ROC-AUC and 90.5% accuracy.',
+    tags: ['Python', 'scikit-learn', 'pandas', 'Random Forest'],
+    sections: [
+      {
+        heading: 'What We Built',
+        steps: [
+          'Random Forest on 12,205 sessions: 0.92 ROC-AUC, 90.5% accuracy.',
+          'Beat the 84% majority-class baseline by 6.5 points.',
+          'No data leakage: the 64-feature pipeline is fit on training data only.',
+          'Evaluated with ROC curves and confusion matrices.',
+        ],
+      },
+    ],
+    links: [],
+  },
+  {
+    img: 'assets/cookies/cookie-a.png',
     name: 'ADYN × DIIG',
     title: 'Data & Dashboarding for ADYN',
-    meta: 'Sep – Dec 2026 · Duke Impact Investment Group · 5-Person Team · In Progress',
-    blurb: 'Turning a YC-backed women’s health startup’s data into answers its team can explore on their own: EDA, a metrics layer, a dashboard, and ML where it helps.',
-    tags: ['Python', 'pandas', 'SQL', 'Plotly', 'EDA', 'Machine learning', 'Dashboards'],
+    meta: 'Sep 2026 – Present · Duke Impact Investment Group · 5-Person Team',
+    blurb: 'Turning a YC-backed women’s health startup’s data into answers its team can explore on their own.',
+    tags: ['Python', 'pandas', 'SQL', 'Plotly', 'EDA', 'Dashboards'],
     sections: [
       {
         heading: 'The Client',
-        text: 'ADYN (YC 2025) personalizes birth control using hormone and genetic testing. As a data analyst in DIIG, I’m on a five-person team helping them get more out of the data they collect.',
+        text: 'ADYN (YC 2025) personalizes birth control using hormone and genetic testing.',
       },
       {
-        heading: 'What We’re Delivering',
+        heading: 'What I’m Doing',
         steps: [
-          'A prioritized set of research questions — the business and scientific questions most worth answering.',
-          'A dashboard demo that answers them, and lets ADYN’s team build and save their own views.',
-          'A recommendation for the technical structure they should use to keep visualizing trends.',
+          'Turned 9 research questions into a roadmap for ADYN.',
+          'Cleaning and exploring 7 datasets (orders, hormone, genotype).',
+          'Building a self-serve dashboard demo with a shared metrics dictionary.',
         ],
-      },
-      {
-        heading: 'How We’re Doing It',
-        steps: [
-          'Question discovery: pairing client conversations with exploratory data analysis, then narrowing a longlist of questions to a must-answer top five.',
-          'Data profiling & EDA: checking completeness, consistency and coverage, and documenting every cleaning and missing-data decision.',
-          'Pipeline: extracting a snapshot and building cleaned analytical tables, so the dashboard never depends on a live production system.',
-          'Metrics layer: every metric defined once in a shared registry, so charts can’t quietly drift apart.',
-          'Charts & dashboard: a standardized Plotly chart library, curated pages for the priority questions, and an Explore tab for self-serve analysis.',
-          'Modeling: predictive and machine-learning models where a priority question calls for one.',
-        ],
-      },
-      {
-        heading: 'Run Like a Real Engagement',
-        text: 'Phase gates, weekly standups, biweekly client check-ins, and one branch per work track. Data handling is strict: no credentials in code and no client data on personal machines. (That’s also why this page stays high-level.)',
       },
     ],
     links: [{ label: 'ADYN’s Science', href: 'https://adyn.com/science/' }],
   },
   {
     img: 'assets/cookies/cookie-a.png',
+    name: 'Swing-State Model',
+    title: 'Modeling Wisconsin Elections',
+    meta: 'Jun 2025 – Apr 2026 · Institute for Mathematics and Democracy · Research',
+    blurb: 'Möbius inversion and machine learning on Wisconsin election data to explain swing-state behavior. Preprint on arXiv.',
+    tags: ['Python', 'Machine learning', 'Möbius inversion', 'Statistics'],
+    sections: [
+      {
+        heading: 'What I Did',
+        steps: [
+          'Modeled Wisconsin election data with Möbius inversion and machine learning.',
+          'Wrote the paper: on arXiv, under review at the Rose-Hulman Undergraduate Math Journal.',
+          'Selected nationally; presented to all program teams, then kept going with the professor.',
+        ],
+      },
+    ],
+    links: [{ label: 'Preprint on arXiv', href: 'https://arxiv.org/abs/2510.26867' }],
+  },
+  {
+    img: 'assets/cookies/cookie-a.png',
+    name: 'ADAPT-VQE',
+    title: 'Improving ADAPT-VQE',
+    meta: 'Sep 2025 – Jun 2026 · Virginia Tech Quantum Lab Partnership · Research',
+    blurb: 'Making a quantum algorithm for molecular simulation better by leveraging entanglement.',
+    tags: ['Python', 'Quantum computing', 'VQE'],
+    sections: [
+      {
+        heading: 'What I Did',
+        steps: [
+          'Worked on improving ADAPT-VQE, a quantum algorithm for simulating molecules.',
+          'Used entanglement to guide the algorithm, in Python.',
+          'Iterated on the design with a faculty mentor and 2 other researchers every two weeks.',
+        ],
+      },
+    ],
+    links: [],
+  },
+  {
+    img: 'assets/cookies/cookie-a.png',
     name: 'This Website',
-    title: 'This kitchen',
+    title: 'This Kitchen',
     meta: 'Sep 2026 · Personal Site',
-    blurb: 'My portfolio as a cozy illustrated kitchen: an SVG scene drawn in code, plain HTML/CSS/JS, hosted on GitHub Pages.',
+    blurb: 'My portfolio as a cozy kitchen full of stickers I drew, in plain HTML/CSS/JS on GitHub Pages.',
     tags: ['HTML', 'CSS', 'JavaScript', 'SVG', 'Python', 'GitHub Pages'],
     sections: [
       {
@@ -91,21 +125,19 @@ const PROJECTS = [
       {
         heading: 'How It’s Built',
         steps: [
-          'The kitchen is a single SVG illustration drawn in code, with CSS animation for the oven glow, the autumn leaves outside the window, and the cat’s tail. (Try the sink tap.)',
-          'No frameworks: plain HTML, CSS and JavaScript. Projects live in one small data file, and this tray renders itself from it.',
-          'Keyboard-friendly and responsive: every clickable thing is focusable, popups keep themselves on screen, and animation turns off for people who prefer reduced motion.',
-          'The watercolor cookie was cut out of a stock illustration with a short Python script (NumPy, SciPy, Pillow) using flood-fill background removal and a soft elliptical mask.',
-          'Hosted on GitHub Pages with versioned asset links, so visitors always get the latest styles.',
+          'Hand-drawn stickers, cut out with a short Python script (NumPy, SciPy, Pillow).',
+          'Animated in CSS: oven glow, falling leaves, the cat’s tail. (Try the sink tap.)',
+          'No frameworks. This tray renders itself from one small data file.',
+          'Keyboard-friendly, responsive, and respects reduced motion.',
         ],
       },
     ],
     links: [{ label: 'Code on GitHub', href: 'https://github.com/michellezuo/michellezuo.github.io' }],
   },
-];
-// ───────────────────────────────────────────────────────────────────────
+];// ───────────────────────────────────────────────────────────────────────
 
 // same cookie art on every spot, so mirror/tilt each one to keep the tray from looking copy-pasted
-const TURNS = [[0, 1], [4, -1], [-5, 1]];
+const TURNS = [[0, 1], [4, -1], [-5, 1], [6, -1], [-3, 1], [2, -1]];
 
 const tray = document.getElementById('cookies');
 const dialog = document.getElementById('recipe');

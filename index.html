@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
   <script>try{if(localStorage.getItem('theme')==='dark')document.documentElement.dataset.theme='dark'}catch(e){}</script>
-  <link rel="stylesheet" href="css/style.css?v=21">
+  <link rel="stylesheet" href="css/style.css?v=23">
 </head>
 <body class="kitchen-page">
 
@@ -148,6 +148,8 @@
       </g>
 
       <!-- cat on sill, looking out -->
+      <!-- tail is its own layer behind the body so it can wag; it pivots where it leaves the body -->
+      <image class="tail" href="assets/stickers/cat-tail.png" x="688" y="355" width="64" height="95"/>
       <image href="assets/stickers/cat.png" x="688" y="355" width="64" height="95"/>
 
       <!-- ============ COUNTER + CABINETS ============ -->
@@ -357,6 +359,11 @@
         <div>
           <h2 id="about-h" class="big">About Me</h2>
           <p class="kicker">Michelle Zuo · Math + CS @ Duke</p>
+          <p class="quick-facts">Python · SQL · R · Machine learning · Quantum computing</p>
+          <div class="about-actions">
+            <a class="btn" href="assets/resume.pdf" target="_blank" rel="noopener">Resume (PDF) ↗</a>
+            <a class="btn ghost" href="mailto:michelle.zuo@duke.edu">Email Me</a>
+          </div>
         </div>
       </div>
 
@@ -365,11 +372,12 @@
         <li>
           <span class="what">Duke University</span>
           <span class="when">Class of 2030</span>
-          <span class="detail">B.S. Mathematics &amp; Computer Science</span>
+          <span class="detail">B.S. Mathematics &amp; Computer Science. Coursework: Data Structures &amp; Algorithms, Linear Algebra with Proofs, Advanced Problem Solving Seminar.</span>
         </li>
         <li>
           <span class="what">Thomas Jefferson High School for Science and Technology</span>
           <span class="when">Class of 2026</span>
+          <span class="detail">Weighted GPA 4.589. Coursework: Artificial Intelligence 1 &amp; 2, Research Statistics, Concrete Math, Multivariable Calculus.</span>
         </li>
       </ul>
 
@@ -396,20 +404,57 @@
       <ul class="entries">
         <li>
           <span class="what">Research Intern, George Mason University (ASSIP)</span>
-          <span class="when">Jun 2025 – Mar 2026</span>
-          <span class="detail">NSF-funded DISES project: economic loss vs. social vulnerability across NOAA’s costliest hazards. Paper under review.</span>
+          <span class="when">Jun – Nov 2025</span>
+          <span class="detail">NSF-funded DISES project: economic loss vs. social vulnerability across NOAA’s costliest hazards, on terabyte-scale data. Paper under review.</span>
         </li>
         <li>
           <span class="what">Research Student, Institute for Mathematics and Democracy</span>
-          <span class="when">Jun 2025 – Mar 2026</span>
-          <span class="detail">Swing-state analysis of Wisconsin elections. <a href="https://arxiv.org/abs/2510.26867" target="_blank" rel="noopener">Preprint on arXiv</a>.</span>
+          <span class="when">Jun 2025 – Apr 2026</span>
+          <span class="detail">Möbius inversion and machine learning on Wisconsin election data. <a href="https://arxiv.org/abs/2510.26867" target="_blank" rel="noopener">Preprint on arXiv</a>.</span>
         </li>
         <li>
           <span class="what">Quantum Research Student, Virginia Tech Quantum Lab Partnership</span>
           <span class="when">Sep 2025 – Jun 2026</span>
-          <span class="detail">Improving ADAPT-VQE, a quantum algorithm for molecular simulation.</span>
+          <span class="detail">Improving ADAPT-VQE, a quantum algorithm for molecular simulation, by leveraging entanglement.</span>
         </li>
       </ul>
+
+      <h2>Technical Skills</h2>
+      <dl class="skills">
+        <dt>Languages</dt>
+        <dd class="chips"><span>Python</span><span>SQL</span><span>R</span><span>Java</span><span>MATLAB</span><span>C++ (beginner)</span><span>LaTeX</span></dd>
+        <dt>Tools</dt>
+        <dd class="chips"><span>Git</span><span>scikit-learn</span><span>pandas</span><span>Flask</span><span>GeoDa</span></dd>
+        <dt>Focus</dt>
+        <dd class="chips"><span>Algorithms</span><span>Machine learning</span><span>Statistical modeling</span><span>Probability</span><span>Quantum computing</span><span>Spatial analysis</span><span>Data visualization</span></dd>
+        <dt>Speaks</dt>
+        <dd class="chips"><span>English</span><span>Chinese</span></dd>
+      </dl>
+
+      <h2>Honors &amp; Awards</h2>
+      <ul class="entries">
+        <li>
+          <span class="what">AIME Qualifier</span>
+          <span class="when">4×</span>
+        </li>
+        <li>
+          <span class="what">AP Scholar with Distinction</span>
+        </li>
+        <li>
+          <span class="what">Paper preprinted on arXiv (2510.26867)</span>
+          <span class="detail">Under review at the Rose-Hulman Undergraduate Math Journal.</span>
+        </li>
+      </ul>
+
+      <h2>Activities</h2>
+      <ul class="entries">
+        <li>
+          <span class="what">Catalyst · Duke Quantitative Finance Club · HackDuke</span>
+          <span class="when">Duke</span>
+        </li>
+      </ul>
+
+      <p class="detail-note">Projects are in the oven: <a href="#projects">see the tray</a>.</p>
     </section>
 
     <section id="fun" class="plain wide" aria-labelledby="fun-h">
@@ -426,6 +471,12 @@
         <h2 id="friends-h">Friends</h2>
         <p class="board-note">The people who make everything more fun.</p>
         <div class="board" data-board="friends"></div>
+      </div>
+
+      <div class="board-group">
+        <h2 id="travel-h">Traveling</h2>
+        <p class="board-note">Places I’ve been lately, from Beijing to the end of Route 66.</p>
+        <div class="board" data-board="travel"></div>
       </div>
     </section>
   </div>
@@ -501,8 +552,8 @@
       if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
     });
   </script>
-  <script src="js/projects.js?v=20"></script>
-  <script src="js/fun.js?v=20"></script>
+  <script src="js/projects.js?v=21"></script>
+  <script src="js/fun.js?v=21"></script>
   <script src="js/progress.js?v=20"></script>
   <script src="js/theme.js?v=20"></script>
 </body>
