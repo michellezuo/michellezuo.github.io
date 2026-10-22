@@ -95,7 +95,8 @@ a { color: inherit; }
 .back:hover { text-decoration: underline; text-underline-offset: 4px; }
 
 /* ---------- landing / kitchen ---------- */
-body.kitchen-page { background: var(--cream); }
+/* same tan as the kitchen wall, so the name and the kitchen read as one room */
+body.kitchen-page { background: var(--wall); }
 .hello {
   text-align: center;
   padding: 30px 16px 0;

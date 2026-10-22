@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
   <script>try{if(localStorage.getItem('theme')==='dark')document.documentElement.dataset.theme='dark'}catch(e){}</script>
-  <link rel="stylesheet" href="css/style.css?v=25">
+  <link rel="stylesheet" href="css/style.css?v=26">
 </head>
 <body class="kitchen-page">
 
@@ -21,7 +21,7 @@
   </header>
 
   <main class="kitchen-wrap">
-    <svg class="kitchen" viewBox="0 0 1200 780" role="img" aria-labelledby="kt">
+    <svg class="kitchen" viewBox="0 110 1200 670" role="img" aria-labelledby="kt">
       <title id="kt">A cozy kitchen. Click the oven for projects, the recipe book for about me, and the dessert counter for fun stuff. Autumn leaves drift past the window.</title>
       <defs>
         <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
@@ -37,18 +37,8 @@
         <clipPath id="ovenWin"><rect x="120" y="578" width="160" height="88" rx="10"/></clipPath>
       </defs>
 
-      <!-- ceiling planks -->
-      <rect x="0" y="0" width="1200" height="92" fill="var(--plank)"/>
-      <g stroke="var(--line)" stroke-width="2.5" stroke-linecap="round" opacity=".75">
-        <path d="M80 0 L60 90"/><path d="M200 0 L186 90"/><path d="M320 0 L312 90"/>
-        <path d="M440 0 L437 90"/><path d="M560 0 L561 90"/><path d="M680 0 L686 90"/>
-        <path d="M800 0 L812 90"/><path d="M920 0 L937 90"/><path d="M1040 0 L1062 90"/>
-        <path d="M1160 0 L1187 90"/>
-      </g>
-      <rect x="0" y="90" width="1200" height="8" fill="var(--wood)" class="ol"/>
-
       <!-- wall -->
-      <rect x="0" y="98" width="1200" height="642" fill="var(--wall)"/>
+      <rect x="0" y="110" width="1200" height="630" fill="var(--wall)"/>
 
       <!-- floor -->
       <g>
@@ -151,18 +141,19 @@
       <!-- cat on sill, looking out -->
       <!-- tail is its own layer behind the body so it can wag; it pivots where it leaves the body -->
       <image class="tail" href="assets/stickers/cat-tail.png" x="688" y="355" width="64" height="95"/>
-      <image href="assets/stickers/cat.png" x="688" y="355" width="64" height="95"/>
+      <image href="assets/stickers/cat.png?v=2" x="688" y="355" width="64" height="95"/>
 
       <!-- ============ COUNTER + CABINETS ============ -->
       <rect x="342" y="522" width="798" height="218" fill="var(--olive)" class="ol"/>
       <!-- drawers -->
       <g class="ol" fill="var(--olive-dark)" stroke-width="2.5">
         <rect x="354" y="534" width="186" height="40" rx="4"/>
+        <rect x="550" y="534" width="186" height="40" rx="4"/>
         <rect x="746" y="534" width="186" height="40" rx="4"/>
         <rect x="942" y="534" width="186" height="40" rx="4"/>
       </g>
       <g fill="var(--mustard)" class="ol" stroke-width="2">
-        <circle cx="447" cy="554" r="5"/>
+        <circle cx="447" cy="554" r="5"/><circle cx="643" cy="554" r="5"/>
         <circle cx="839" cy="554" r="5"/><circle cx="1035" cy="554" r="5"/>
       </g>
 
@@ -225,10 +216,15 @@
 
       <!-- ============ SINK (easter egg: tap it) ============ -->
       <g id="sink" class="hotspot" role="button" tabindex="0" aria-label="Turn the tap on or off" aria-pressed="false">
-        <!-- apron sink set into the counter: faucet on the countertop, basin where the middle drawer was -->
-        <image href="assets/stickers/sink.png" x="563.5" y="425" width="159" height="157.8"/>
+        <rect x="500" y="496" width="200" height="8" rx="3" fill="#8e9a9a" class="ol" stroke-width="2.5"/>
+        <path d="M600 498 V452 Q600 436 616 436 H634 Q648 436 648 450 V460" fill="none" stroke="var(--line)" stroke-width="15" stroke-linecap="round"/>
+        <path d="M600 498 V452 Q600 436 616 436 H634 Q648 436 648 450 V460" fill="none" stroke="#c9d1d1" stroke-width="9" stroke-linecap="round"/>
+        <g class="ol" fill="#c9d1d1" stroke-width="2.5">
+          <rect x="570" y="484" width="16" height="12" rx="3"/>
+          <rect x="614" y="484" width="16" height="12" rx="3"/>
+        </g>
         <g class="water">
-          <line x1="625" y1="463" x2="625" y2="522" stroke="#9fd0e6" stroke-width="6" stroke-dasharray="8 4" stroke-linecap="round"/>
+          <line x1="648" y1="466" x2="648" y2="498" stroke="#9fd0e6" stroke-width="5" stroke-dasharray="8 4" stroke-linecap="round"/>
         </g>
       </g>
       <!-- plant on counter -->
@@ -281,7 +277,7 @@
           </g>
           <text x="420" y="364" text-anchor="middle" class="serif" font-size="18" font-weight="600" fill="var(--line)">About Me</text>
           <line class="uline" x1="386" y1="369" x2="454" y2="369" stroke="var(--line)" stroke-width="1.5"/>
-          <image href="assets/stickers/recipe-book.png" x="345" y="378" width="150" height="96.6"/>
+          <image href="assets/stickers/recipe-book.png?v=2" x="345" y="378" width="150" height="96.6"/>
           <rect x="340" y="472" width="160" height="9" rx="3" fill="var(--wood)" class="ol" stroke-width="2.5"/>
         </g>
       </a>
@@ -375,7 +371,7 @@
         </li>
       </ul>
 
-      <h2>Currently</h2>
+      <h2>Experience</h2>
       <ul class="entries">
         <li>
           <span class="what">Data Analyst, Duke Impact Investment Group (DIIG)</span>
@@ -440,10 +436,10 @@
         </li>
       </ul>
 
-      <h2>Activities</h2>
+      <h2>Activities/Societies</h2>
       <ul class="entries">
         <li>
-          <span class="what">Catalyst · Duke Quantitative Finance Club · HackDuke</span>
+          <span class="what">DIIG · DTech · Catalyst · Duke Quantitative Finance Club · HackDuke</span>
           <span class="when">Duke</span>
         </li>
       </ul>
