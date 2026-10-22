@@ -58,7 +58,36 @@
     return `rgb(${STOPS[STOPS.length - 1][1].join(',')})`;
   }
 
+  // oven timer "ding" when the cookie is fully baked, made with Web Audio so there's no sound file.
+  // browsers only allow sound after the visitor has clicked/tapped/typed, so unlock on the first one.
+  let audio = null;
+  const unlock = () => {
+    try {
+      audio = audio || new (window.AudioContext || window.webkitAudioContext)();
+      if (audio.state === 'suspended') audio.resume();
+    } catch (e) { /* no audio support: stay quiet */ }
+  };
+  ['pointerdown', 'keydown', 'touchend'].forEach(ev => window.addEventListener(ev, unlock, { once: true, passive: true }));
+  function ding() {
+    if (!audio || audio.state !== 'running') return;
+    const now = audio.currentTime;
+    // a bell is a few out-of-tune partials that ring and fade
+    [[1318.5, .22], [3290, .07], [2637, .05]].forEach(([freq, vol]) => {
+      const osc = audio.createOscillator();
+      const gain = audio.createGain();
+      osc.type = 'sine';
+      osc.frequency.value = freq;
+      gain.gain.setValueAtTime(0, now);
+      gain.gain.linearRampToValueAtTime(vol, now + .005);
+      gain.gain.exponentialRampToValueAtTime(.0001, now + 1.6);
+      osc.connect(gain).connect(audio.destination);
+      osc.start(now);
+      osc.stop(now + 1.7);
+    });
+  }
+
   let queued = false;
+  let wasDone = null;  // null until the first update, so a page that loads already "done" doesn't ding
   function update() {
     queued = false;
     const max = document.documentElement.scrollHeight - window.innerHeight;
@@ -72,6 +101,9 @@
     dough.style.fill = doughColor(t);
     chips.style.opacity = String(Math.min(1, t * 1.6));
     const done = pct >= 99;
+    if (done && wasDone === false) ding();
+    // re-arm once they scroll back up a bit, so it can ding again
+    if (done || pct < 90 || wasDone === null) wasDone = done;
     pill.classList.toggle('done', done);
     label.textContent = done ? 'Fully Baked!' : `${pct}% Baked`;
     pill.setAttribute('aria-valuenow', String(pct));

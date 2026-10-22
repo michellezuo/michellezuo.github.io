@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
   <script>try{if(localStorage.getItem('theme')==='dark')document.documentElement.dataset.theme='dark'}catch(e){}</script>
-  <link rel="stylesheet" href="css/style.css?v=24">
+  <link rel="stylesheet" href="css/style.css?v=25">
 </head>
 <body class="kitchen-page">
 
@@ -102,9 +102,10 @@
             <circle cx="135" cy="438" r="5" fill="var(--mustard)"/>
           </g>
 
-          <!-- label on the bottom drawer -->
-          <text x="200" y="712" text-anchor="middle" class="serif" font-size="19" font-weight="600" fill="var(--line)">Projects</text>
-          <line class="uline" x1="168" y1="717" x2="232" y2="717" stroke="var(--terracotta)" stroke-width="2"/>
+          <!-- nameplate on the bottom drawer, so the label sits on a clean background -->
+          <rect x="154" y="689" width="92" height="28" rx="6" fill="#fbf1dc" class="ol" stroke-width="2"/>
+          <text x="200" y="709" text-anchor="middle" class="serif" font-size="17" font-weight="600" fill="var(--line)">Projects</text>
+          <line class="uline" x1="172" y1="712" x2="228" y2="712" stroke="var(--terracotta)" stroke-width="1.5"/>
         </g>
 
         <g class="steam" transform="translate(0,-16)">
@@ -219,21 +220,15 @@
         </g>
       </g>
 
-      <!-- tea towel -->
-      <g class="ol" stroke-width="2.5">
-        <path d="M628 556 H658 V632 H628 Z" fill="var(--paper)"/>
-        <rect x="628" y="606" width="30" height="5" fill="var(--terracotta)" stroke="none"/>
-        <rect x="628" y="615" width="30" height="3" fill="var(--night)" stroke="none"/>
-      </g>
-
       <!-- countertop -->
       <rect x="334" y="500" width="816" height="24" rx="3" fill="var(--terracotta)" class="ol"/>
 
       <!-- ============ SINK (easter egg: tap it) ============ -->
       <g id="sink" class="hotspot" role="button" tabindex="0" aria-label="Turn the tap on or off" aria-pressed="false">
-        <image href="assets/stickers/sink.png" x="542" y="401.6" width="202.2" height="157.8"/>
+        <!-- apron sink set into the counter: faucet on the countertop, basin where the middle drawer was -->
+        <image href="assets/stickers/sink.png" x="563.5" y="425" width="159" height="157.8"/>
         <g class="water">
-          <line x1="625" y1="442" x2="625" y2="498" stroke="#9fd0e6" stroke-width="6" stroke-dasharray="8 4" stroke-linecap="round"/>
+          <line x1="625" y1="463" x2="625" y2="522" stroke="#9fd0e6" stroke-width="6" stroke-dasharray="8 4" stroke-linecap="round"/>
         </g>
       </g>
       <!-- plant on counter -->
@@ -279,17 +274,16 @@
       <!-- ============ RECIPE BOOK → about ============ -->
       <a id="book" class="hotspot" href="#about" aria-label="Recipe for Michelle: about me">
         <g class="lift">
-          <!-- wooden recipe stand: back panel, book, then the ledge + feet in front -->
+          <!-- wooden recipe stand: tall backboard with the label, the book lying flat on the ledge, feet in front -->
           <g class="ol" stroke-width="2.5" fill="var(--wood)">
-            <rect x="354" y="364" width="132" height="112" rx="4"/>
+            <rect x="350" y="338" width="140" height="138" rx="5"/>
             <path d="M362 476 L352 500 M478 476 L488 500" fill="none" stroke="var(--wood)" stroke-width="6"/>
           </g>
-          <image href="assets/stickers/recipe-book.png" x="345" y="372" width="150" height="104.3"/>
+          <text x="420" y="364" text-anchor="middle" class="serif" font-size="18" font-weight="600" fill="var(--line)">About Me</text>
+          <line class="uline" x1="386" y1="369" x2="454" y2="369" stroke="var(--line)" stroke-width="1.5"/>
+          <image href="assets/stickers/recipe-book.png" x="345" y="378" width="150" height="96.6"/>
           <rect x="340" y="472" width="160" height="9" rx="3" fill="var(--wood)" class="ol" stroke-width="2.5"/>
         </g>
-        <!-- label on the countertop edge, since the sticker already says "Recipe: Michelle" -->
-        <text x="420" y="517" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-size="14" fill="#fbf1dc">(About Me)</text>
-        <line class="uline" x1="390" y1="520" x2="450" y2="520" stroke="#fbf1dc" stroke-width="1.5"/>
       </a>
 
       <!-- ============ MESSY DESSERT COUNTER → fun ============ -->
@@ -362,7 +356,7 @@
           <p class="quick-facts">Python · SQL · R · Machine learning · Quantum computing</p>
           <div class="about-actions">
             <a class="btn" href="assets/resume.pdf" target="_blank" rel="noopener">Resume (PDF) ↗</a>
-            <a class="btn ghost" href="mailto:michelle.zuo@duke.edu">Email Me</a>
+            <a class="btn" href="mailto:michelle.zuo@duke.edu">Email Me</a>
           </div>
         </div>
       </div>
@@ -552,9 +546,9 @@
       if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
     });
   </script>
-  <script src="js/projects.js?v=21"></script>
+  <script src="js/projects.js?v=22"></script>
   <script src="js/fun.js?v=21"></script>
-  <script src="js/progress.js?v=20"></script>
+  <script src="js/progress.js?v=21"></script>
   <script src="js/theme.js?v=20"></script>
 </body>
 </html>

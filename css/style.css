@@ -286,20 +286,17 @@ body.kitchen-page { background: var(--cream); }
 .detail-note { margin-top: 18px; font-family: var(--f-serif); font-style: italic; font-size: 19px; }
 /* recruiter-friendly bits on the about page */
 .quick-facts { margin: -20px 0 16px; font-size: 14px; color: #8a7d6b; }
-.about-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.about-actions { display: flex; flex-wrap: wrap; gap: 22px; }
+/* plain text links, just underlined */
 .btn {
-  display: inline-block;
-  padding: 8px 16px;
-  border-radius: 999px;
-  border: 1.5px solid var(--terracotta);
-  background: var(--terracotta);
-  color: #fff;
-  font-size: 14px;
+  color: var(--terracotta);
+  font-size: 15px;
   font-weight: 600;
-  text-decoration: none;
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 4px;
 }
-.btn.ghost { background: none; color: var(--terracotta); }
-.btn:hover, .btn:focus-visible { filter: brightness(1.08); }
+.btn:hover, .btn:focus-visible { text-decoration-thickness: 2.5px; }
 .skills {
   display: grid;
   grid-template-columns: 90px 1fr;
@@ -667,12 +664,9 @@ body.tray-page { background: #fff; }
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 6px 12px 6px 8px;
-  border: 1.5px solid rgba(75, 42, 28, .3);
-  border-radius: 999px;
-  background: rgba(255, 250, 241, .85);
-  -webkit-backdrop-filter: blur(6px);
-  backdrop-filter: blur(6px);
+  padding: 6px 4px;
+  border: 0;
+  background: none;
   color: var(--ink);
   font: 600 10.5px/1 var(--f-body);
   letter-spacing: .16em;
@@ -681,6 +675,7 @@ body.tray-page { background: #fff; }
   transition: background .3s, color .3s, border-color .3s;
 }
 .light-switch:focus-visible { outline: 3px solid var(--mustard); outline-offset: 2px; }
+.light-switch:hover .ls-label { text-decoration: underline; text-underline-offset: 3px; }
 .light-switch .plate {
   position: relative;
   width: 18px;
@@ -700,13 +695,13 @@ body.tray-page { background: #fff; }
   background: var(--line);
   transition: top .2s ease;
 }
-@media (max-width: 480px) { .light-switch .ls-label { display: none; } .light-switch { padding: 6px; } }
+@media (max-width: 480px) { .light-switch .ls-label { display: none; } }
 
 /* ---------- night mode: the kitchen lights are off ---------- */
 body, .site-footer { transition: background-color .4s ease, color .4s ease; }
 :root[data-theme="dark"] { color-scheme: dark; }
 :root[data-theme="dark"] body { background: #15100c; color: #efe3cf; }
-:root[data-theme="dark"] .light-switch { background: rgba(30, 22, 17, .85); color: #efe3cf; border-color: rgba(239, 227, 207, .25); }
+:root[data-theme="dark"] .light-switch { color: #efe3cf; }
 :root[data-theme="dark"] .light-switch .plate { background: #3a2a1f; border-color: #efe3cf; }
 :root[data-theme="dark"] .light-switch .nub { top: 13px; background: #efe3cf; }
 :root[data-theme="dark"] .back { color: #e39b76; }
@@ -755,7 +750,7 @@ body, .site-footer { transition: background-color .4s ease, color .4s ease; }
 :root[data-theme="dark"] .recipe-meta { color: #a8987f; }
 :root[data-theme="dark"] .chips span { background: #3a2d24; border-color: #5a4535; color: #efe3cf; }
 :root[data-theme="dark"] .quick-facts { color: #a8987f; }
-:root[data-theme="dark"] .btn.ghost { color: #e39b76; border-color: #e39b76; }
+:root[data-theme="dark"] .btn { color: #e39b76; }
 :root[data-theme="dark"] .links a,
 :root[data-theme="dark"] .card .card-hint,
 :root[data-theme="dark"] .recipe-kicker { color: #e39b76; }
