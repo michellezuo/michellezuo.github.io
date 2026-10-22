@@ -63,16 +63,11 @@
       <g class="ol" fill="none">
         <line x1="90" y1="250" x2="310" y2="250" stroke-width="6" stroke="var(--mustard)"/>
         <line x1="90" y1="250" x2="310" y2="250"/>
-        <!-- spoon -->
-        <path d="M115 250 V325"/><ellipse cx="115" cy="336" rx="9" ry="13" fill="var(--wood)"/>
-        <!-- ladle -->
-        <path d="M150 250 V320"/><path d="M136 320 a14 14 0 0 0 28 0 Z" fill="#b9c2c2"/>
-        <!-- whisk -->
-        <path d="M190 250 V282"/>
-        <path d="M190 282 C176 300 178 336 190 342 C202 336 204 300 190 282 Z" fill="none"/>
-        <path d="M190 282 V342"/>
-        <!-- spatula -->
-        <path d="M228 250 V304"/><rect x="216" y="304" width="24" height="36" rx="4" fill="var(--terracotta)"/>
+        <!-- utensil bundle + whisk stickers hanging off strings -->
+        <path d="M150 250 V264"/>
+        <image href="assets/stickers/utensils.png" x="115" y="258" width="70" height="100"/>
+        <path d="M220 250 V262"/>
+        <image href="assets/stickers/whisk.png" x="208.5" y="258" width="23" height="72"/>
         <!-- potholder -->
         <path d="M268 250 V266"/>
         <rect x="248" y="276" width="40" height="40" transform="rotate(45 268 296)" fill="var(--terracotta)"/>
@@ -296,9 +291,6 @@
       </g>
       <!-- mug + plant on counter -->
       <g class="ol" stroke-width="2.5">
-        <path d="M530 470 H556 V494 Q556 500 550 500 H536 Q530 500 530 494 Z" fill="var(--paper)"/>
-        <path d="M556 476 q10 0 10 9 q0 9 -10 9" fill="none"/>
-        <path d="M537 480 q6 -6 12 0" fill="none" stroke="var(--terracotta)"/>
         <path d="M722 476 H760 L754 500 H728 Z" fill="var(--terracotta)"/>
         <path d="M741 476 q-14 -24 -24 -26 q4 16 24 26 q2 -26 12 -34 q2 20 -12 34 q18 -18 30 -14 q-10 14 -30 14" fill="#86a06a"/>
       </g>
@@ -348,22 +340,17 @@
       <!-- ============ RECIPE BOOK → about ============ -->
       <a id="book" class="hotspot" href="#about" aria-label="Recipe for Michelle: about me">
         <g class="lift">
-          <g class="ol" stroke-width="2.5">
-            <path d="M380 500 L420 444 L460 500" fill="none" stroke="var(--wood)" stroke-width="6"/>
-            <path d="M346 490 L420 478 L420 402 L352 412 Z" fill="var(--paper)"/>
-            <path d="M494 490 L420 478 L420 402 L488 412 Z" fill="var(--paper)"/>
-            <path d="M342 494 L420 482 L498 494" fill="none" stroke="var(--terracotta)" stroke-width="5"/>
-            <path d="M426 482 v18 l4 -5 l4 5 v-18" fill="var(--terracotta)" stroke-width="2"/>
+          <!-- wooden recipe stand: back panel, book, then the ledge + feet in front -->
+          <g class="ol" stroke-width="2.5" fill="var(--wood)">
+            <rect x="354" y="364" width="132" height="112" rx="4"/>
+            <path d="M362 476 L352 500 M478 476 L488 500" fill="none" stroke="var(--wood)" stroke-width="6"/>
           </g>
-          <text x="386" y="434" text-anchor="middle" class="serif" font-size="17" font-weight="600" fill="var(--line)" transform="rotate(-8.4 386 434)">Recipe:</text>
-          <text x="455" y="434" text-anchor="middle" class="serif" font-size="15" font-weight="600" fill="var(--line)" transform="rotate(8.4 455 434)">Michelle</text>
-          <text x="455" y="452" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-size="13" fill="var(--terracotta)" transform="rotate(8.4 455 452)">(About Me)</text>
-          <line class="uline" x1="428" y1="435" x2="482" y2="443" stroke="var(--terracotta)" stroke-width="1.5"/>
-          <g stroke="#c9b99e" stroke-width="1.5" stroke-linecap="round">
-            <path d="M362 452 L410 445"/><path d="M362 462 L410 455"/><path d="M362 472 L398 467"/>
-            <path d="M432 466 L480 473"/><path d="M432 476 L468 481"/>
-          </g>
+          <image href="assets/stickers/recipe-book.png" x="345" y="372" width="150" height="104.3"/>
+          <rect x="340" y="472" width="160" height="9" rx="3" fill="var(--wood)" class="ol" stroke-width="2.5"/>
         </g>
+        <!-- label on the countertop edge, since the sticker already says "Recipe: Michelle" -->
+        <text x="420" y="517" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-size="14" fill="#fbf1dc">(About Me)</text>
+        <line class="uline" x1="390" y1="520" x2="450" y2="520" stroke="#fbf1dc" stroke-width="1.5"/>
       </a>
 
       <!-- ============ MESSY DESSERT COUNTER → fun ============ -->
@@ -380,74 +367,13 @@
         <path class="uline" d="M1032 418 q17 4 34 0 q17 -4 34 0" fill="none" stroke="#f3efe4" stroke-width="1.5"/>
 
         <g class="lift">
-          <!-- flour dusting + eggs -->
+          <!-- flour dusting -->
           <path d="M772 502 q12 -4 24 0 q12 4 20 -1 q10 -2 6 5 q-24 5 -50 0 Z" fill="#fffaf1"/>
           <path d="M934 503 q10 -3 18 0 q6 3 -2 4 q-12 1 -16 -4 Z" fill="#fffaf1"/>
-          <g class="ol" stroke-width="2.5" fill="#fbf5ea">
-            <ellipse cx="790" cy="490" rx="7" ry="10"/>
-            <path d="M801 500 Q802 486 811 486 Q820 486 821 500 Z"/>
-            <path d="M803 490 l3 -3 l3 3 l3 -3 l3 3 l3 -3 l2 3" fill="none" stroke-width="1.5"/>
-          </g>
-
-          <!-- cheesecake on a stand -->
-          <g class="ol" stroke-width="2.5">
-            <ellipse cx="870" cy="497" rx="26" ry="4" fill="#f3ead8"/>
-            <path d="M862 467 H878 L882 494 H858 Z" fill="#f3ead8"/>
-            <rect x="812" y="460" width="116" height="7" rx="3" fill="#f3ead8"/>
-            <rect x="822" y="448" width="92" height="12" fill="#c98a44"/>
-            <rect x="822" y="418" width="92" height="30" fill="#fbf1dc"/>
-            <path d="M820 418 H916 V424 q-6 8 -10 0 q-8 10 -14 0 q-8 8 -14 0 q-8 10 -16 0 q-8 8 -14 0 q-8 10 -14 0 q-6 6 -14 2 Z" fill="#c8453a" stroke-width="2"/>
-          </g>
-          <g class="ol" stroke-width="2">
-            <ellipse cx="838" cy="411" rx="6" ry="7" fill="#d94b3d"/>
-            <ellipse cx="858" cy="410" rx="6" ry="7" fill="#d94b3d"/>
-            <ellipse cx="878" cy="411" rx="6" ry="7" fill="#d94b3d"/>
-            <ellipse cx="898" cy="410" rx="6" ry="7" fill="#d94b3d"/>
-          </g>
-          <g fill="#86a06a">
-            <path d="M834 404 l4 3 l4 -3 l-4 -2 Z"/><path d="M854 403 l4 3 l4 -3 l-4 -2 Z"/>
-            <path d="M874 404 l4 3 l4 -3 l-4 -2 Z"/><path d="M894 403 l4 3 l4 -3 l-4 -2 Z"/>
-          </g>
-
-          <!-- a slice already cut -->
-          <g class="ol" stroke-width="2.5">
-            <ellipse cx="958" cy="497" rx="28" ry="4" fill="var(--paper)"/>
-            <path d="M936 493 H980 V486 H936 Z" fill="#c98a44" stroke-width="2"/>
-            <path d="M936 486 H980 V464 L936 478 Z" fill="#fbf1dc" stroke-width="2"/>
-            <path d="M936 478 L980 464 V459 L936 473 Z" fill="#c8453a" stroke-width="2"/>
-            <ellipse cx="968" cy="456" rx="5" ry="6" fill="#d94b3d" stroke-width="2"/>
-          </g>
-
-          <!-- fruit tarts on a board -->
-          <rect x="996" y="492" width="142" height="8" rx="3" fill="var(--wood)" class="ol" stroke-width="2.5"/>
-          <g class="ol" stroke-width="2.5" fill="#d9a05c">
-            <path d="M1001 476 H1043 L1039 492 H1005 Z"/>
-            <path d="M1047 476 H1089 L1085 492 H1051 Z"/>
-            <path d="M1093 476 H1135 L1131 492 H1097 Z"/>
-          </g>
-          <g stroke="#a86a31" stroke-width="1.5">
-            <path d="M1010 479 V489 M1018 479 V489 M1026 479 V489 M1034 479 V489"/>
-            <path d="M1056 479 V489 M1064 479 V489 M1072 479 V489 M1080 479 V489"/>
-            <path d="M1102 479 V489 M1110 479 V489 M1118 479 V489 M1126 479 V489"/>
-          </g>
-          <g class="ol" stroke-width="2">
-            <!-- strawberry tart -->
-            <path d="M1007 476 a7 7 0 0 1 14 0 Z" fill="#d94b3d"/>
-            <path d="M1023 476 a7 7 0 0 1 14 0 Z" fill="#d94b3d"/>
-            <circle cx="1022" cy="467" r="4" fill="#3d4b7a"/>
-            <!-- kiwi + mandarin tart -->
-            <circle cx="1060" cy="471" r="7" fill="#9cc36a"/>
-            <circle cx="1077" cy="471" r="6" fill="#f0a040"/>
-            <!-- blueberry tart -->
-            <circle cx="1102" cy="472" r="4.5" fill="#3d4b7a"/>
-            <circle cx="1111" cy="470" r="4.5" fill="#3d4b7a"/>
-            <circle cx="1120" cy="472" r="4.5" fill="#3d4b7a"/>
-            <circle cx="1129" cy="473" r="4" fill="#3d4b7a"/>
-            <path d="M1108 465 a6 6 0 0 1 12 0 Z" fill="#d94b3d"/>
-          </g>
-          <circle cx="1060" cy="471" r="2.5" fill="#eef0c6"/>
-          <!-- stray strawberry -->
-          <ellipse cx="990" cy="495" rx="5" ry="6" fill="#d94b3d" class="ol" stroke-width="2"/>
+          <!-- hand-drawn stickers -->
+          <image href="assets/stickers/cheesecake.png" x="830" y="374" width="96" height="127"/>
+          <image href="assets/stickers/eggshells.png" x="944" y="478" width="34" height="22.8"/>
+          <image href="assets/stickers/fruit-tart.png" x="1031" y="438" width="70" height="62.8"/>
         </g>
       </a>
     </svg>
